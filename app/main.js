@@ -5,12 +5,12 @@ define(['jquery'],function ($) {
 
     		// Get csv string from taxi locations
     		var file = document.getElementById("taxi_locations_csv").files[0];
-			var reader = new FileReader();
-			reader.onload = loadHandler;
-			reader.readAsText(file);
+			var taxiLocationReader = new FileReader();
+			taxiLocationReader.onload = loadTaxiLocationHandler;
+			taxiLocationReader.readAsText(file);
 		});
 
-	  	function loadHandler(event) {
+	  	function loadTaxiLocationHandler(event) {
     		var text = event.target.result;
     		var data = JSON.parse(text);
   		}
