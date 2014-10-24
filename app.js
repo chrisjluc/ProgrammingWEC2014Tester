@@ -8,7 +8,6 @@ requirejs.config({
     paths: {
         app: '../app',
         'jquery': 'jquery-2.1.1.min',
-        'papa':'papaparse.min'
     },
 });
 
