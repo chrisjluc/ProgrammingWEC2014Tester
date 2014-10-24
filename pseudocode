@@ -8,6 +8,9 @@ for each coordinate:
       if state is not empty:
         return error
       set state as person
+      check if person pick up time and location exists in audit
     else if dropoff:
-      check if correct dropoff
+      check state is valid - in pick up mode
+      check dropoff time and location is same as in audit
+      check costs and revenue are valid in audit
   increment time waited by each person
