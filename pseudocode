@@ -1,0 +1,13 @@
+for each coordinate:
+  if first:
+    check if location of taxi
+  else:
+    validate location is a street
+    check if 1 unit away from previous location
+    if pickup:
+      if state is not empty:
+        return error
+      set state as person
+    else if dropoff:
+      check if correct dropoff
+  increment time waited by each person
