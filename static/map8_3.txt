@@ -3,6 +3,6 @@ Xa     X
 X      X
 XX XX  X
 XB XX  X
-X   X  X
+X  TX  X
 XA    bX
 XXXXXXXX
