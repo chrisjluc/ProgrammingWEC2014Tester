@@ -6,38 +6,38 @@
                 "x": 1
             },
             "destination": {
-                "y": 98,
-                "x": 6
-            }
-        },
-        {
-            "start": {
-                "y": 16,
-                "x": 1
-            },
-            "destination": {
-                "y": 53,
-                "x": 18
-            }
-        },
-        {
-            "start": {
-                "y": 12,
-                "x": 1
-            },
-            "destination": {
-                "y": 42,
-                "x": 1
-            }
-        },
-        {
-            "start": {
-                "y": 30,
-                "x": 1
-            },
-            "destination": {
-                "y": 38,
+                "y": 6,
                 "x": 98
+            }
+        },
+        {
+            "start": {
+                "y": 1,
+                "x": 16
+            },
+            "destination": {
+                "y": 18,
+                "x": 53
+            }
+        },
+        {
+            "start": {
+                "y": 1,
+                "x": 12
+            },
+            "destination": {
+                "y": 1,
+                "x": 42
+            }
+        },
+        {
+            "start": {
+                "y": 1,
+                "x": 30
+            },
+            "destination": {
+                "y": 98,
+                "x": 38
             }
         }
     ]
