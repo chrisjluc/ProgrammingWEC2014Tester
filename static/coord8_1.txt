@@ -1,5 +1,8 @@
 {
-    "taxi": {},
+    "taxi": {
+        "y": 4,
+        "x": 1
+    },
     "requests": [
         {
             "start": {
