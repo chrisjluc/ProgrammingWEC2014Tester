@@ -21,6 +21,9 @@ define("validator", ["jquery", "map"], function ($, map) {
       destination: null,
     };
 
+    var distanceTravelled = 0;
+    var distanceTravelledInTransaction = 0;
+
     // Start the checker
     for (var i = 0; i < dataArray.length; i++) {
       var data = dataArray[i];
@@ -44,33 +47,47 @@ define("validator", ["jquery", "map"], function ($, map) {
 
       } else if (data.hasOwnProperty('x') && data.hasOwnProperty('y')) {
         coord = data;
+        // Make sure start state is valid
+        if (prevCoord == null) {
+          if (!map.isStart(coord.x,coord.y)) {
+            console.error("Wrong start coordinates");
+            return;
+          }
+          prevCoord = coord;
+        } else if (map.isStreet(coord.x,coord.y)) {
+          if((abs(coord.x - prevCoord.x) === 1
+              && abs(coord.y - prevCoord.y) === 0)
+              || (abs(coord.x - prevCoord.x) === 0
+              && abs(coord.y - prevCoord.y) === 1)) {
+            prevCoord = coord;
+            distanceTravelled++;
+            if(state.hasPerson)
+              distanceTravelledInTransaction++;
+          } else {
+            console.error("Taxi can't travel more than 1 unit horizontal or vertical " + i + "in data");
+            return;
+          }
+        } else {
+          console.error("Not valid coordinate at index " + i + "in data at coordinate (" +x+ "," + "y"+")");
+          return;
+        }
       } else {
         console.error("Data at index" + i + "has an invalid property");
         return;
       }
-
-      // Make sure start state is valid
-      if (prevCoord == null) {
-        if (!map.isStart(coord.x,coord.y)) {
-          console.error("Wrong start coordinates");
-          return;
-        }
-        prevCoord = coord;
-      } else if (map.isStreet(coord.x,coord.y)) {
-        if((abs(coord.x - prevCoord.x) === 1
-            && abs(coord.y - prevCoord.y) === 0)
-            || (abs(coord.x - prevCoord.x) === 0
-            && abs(coord.y - prevCoord.y) === 1)) {
-          prevCoord = coord;
-        } else {
-          console.error("Taxi can't travel more than 1 unit horizontal or vertical " + i + "in data");
-          return;
-        }
-      } else {
-        console.error("Not valid coordinate at index " + i + "in data at coordinate (" +x+ "," + "y"+")");
-        return;
-      }
     }
+
+    //Calculate revenue and cost
+    var revenuePerUnitDistance = 10;
+    var costPerUnitDistance = 1;
+
+    var cost = distanceTravelled * costPerUnitDistance;
+    var revenue = distanceTravelledInTransaction * revenuePerUnitDistance;
+    var profit = revenue - cost;
+
+    console.log("Profit: "+ profit);
+    console.log("Revenue: "+ revenue);
+    console.log("Cost: "+ cost);
 
     alert("Good to go!");
   };
