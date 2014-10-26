@@ -1,16 +1,14 @@
-define("Validator", ["jquery", "Map"], function ($, Map) {
-  var loadTaxiLocationHandler = function(event) {
-    var text = event.target.result;
-    console.log(text);
-    var dataArray = JSON.parse(text);
-
-    var map = {
-      start: {
-        'x': 0,
-        'y': 1
-      }
-    };
-    //map = new Map()
+define("validator", ["jquery", "map"], function ($, map) {
+  var validate = function(map, requests, dataArray) {
+    console.log(map);
+    console.log(requests);
+    // var map = {
+    //   start: {
+    //     'x': 0,
+    //     'y': 1
+    //   }
+    // };
+    var map = new Map()
 
     // Holds previous taxi coordinates
     var prevCoord = null;
@@ -76,5 +74,22 @@ define("Validator", ["jquery", "Map"], function ($, Map) {
 
     alert("Good to go!");
   };
+
+  var loadTaxiLocationHandler = function(event) {
+    var text = event.target.result;
+    var dataArray = JSON.parse(text);
+    var filename = $("#filename").val();
+    var mapFile = "static/map" + filename + ".txt";
+    var coordFile = "static/coord" + filename + ".txt";
+    console.log("Loading the map and coord");
+    $.get(mapFile, function(mapText) {
+      $.get(coordFile, function(coordText) {
+        // Validate the dataArray after getting the map and coord
+        console.log("Validating");
+        validate(mapText, coordText, dataArray);
+      });
+    });
+  }
+
   return loadTaxiLocationHandler;
 });

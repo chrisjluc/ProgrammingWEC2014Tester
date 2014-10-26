@@ -1,4 +1,4 @@
-define('Map', ['jquery'], function($) {
+define('map', ['jquery'], function($) {
   /**
    * Constructor
    */

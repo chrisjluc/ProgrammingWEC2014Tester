@@ -13,10 +13,7 @@ requirejs.config({
 
 // Start loading the main app file. Put all of
 // your application logic in there.
-requirejs(['map', 'validator', 'jquery'], function(Map, Validator, $) {
-  var cases = ["100_1", "60_1", "20_1"];
-  var files = {};
-
+requirejs(['map', 'validator', 'jquery'], function(Map, validator, $) {
   $("#filename").change(function() {
     var val = $(this).val();
     $("#mapdownload").attr("href", "static/map" + val + ".txt");
@@ -29,6 +26,7 @@ requirejs(['map', 'validator', 'jquery'], function(Map, Validator, $) {
     // Get csv string from taxi locations
     var file = document.getElementById("taxi_locations_csv").files[0];
     var taxiLocationReader = new FileReader();
+    console.log("Clicked submit");
     taxiLocationReader.onload = validator;
     taxiLocationReader.readAsText(file);
   });
