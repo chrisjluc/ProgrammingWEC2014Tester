@@ -14,6 +14,7 @@ requirejs.config({
 // Start loading the main app file. Put all of
 // your application logic in there.
 requirejs(['map', 'validator', 'jquery'], function(Map, validator, $) {
+  // If dropdown changes, update the files to be downloaded
   $("#filename").change(function() {
     var val = $(this).val();
     $("#mapdownload").attr("href", "static/map" + val + ".txt");

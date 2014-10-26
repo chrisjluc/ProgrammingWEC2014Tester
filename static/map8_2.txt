@@ -1,0 +1,8 @@
+XXXXXXXX
+Xa     X
+XX X  BX
+XX XX XX
+XA XX  X
+X  XX  X
+X  b   X
+XXXXXXXX
