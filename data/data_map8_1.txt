@@ -1,0 +1,2 @@
+distance: 5+5+7+5=22
+distanceInTransaction: 5+5=10
