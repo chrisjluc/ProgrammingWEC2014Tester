@@ -42,34 +42,32 @@ define("validator", ["jquery", "map"], function ($, map) {
             return;
           }
           state.hasPerson = false;
-        }
-        continue;
-
-      } else if (data.hasOwnProperty('x') && data.hasOwnProperty('y')) {
-        coord = data;
-        // Make sure start state is valid
-        if (prevCoord == null) {
-          if (!map.isStart(coord.x,coord.y)) {
-            console.error("Wrong start coordinates");
-            return;
-          }
-          prevCoord = coord;
-        } else if (map.isStreet(coord.x,coord.y)) {
-          if((abs(coord.x - prevCoord.x) === 1
-              && abs(coord.y - prevCoord.y) === 0)
-              || (abs(coord.x - prevCoord.x) === 0
-              && abs(coord.y - prevCoord.y) === 1)) {
+        } else if (data.action === 'drive' && data.hasOwnProperty('x') && data.hasOwnProperty('y')) {
+          coord = data;
+          // Make sure start state is valid
+          if (prevCoord == null) {
+            if (!map.isStart(coord.x,coord.y)) {
+              console.error("Wrong start coordinates");
+              return;
+            }
             prevCoord = coord;
-            distanceTravelled++;
-            if(state.hasPerson)
-              distanceTravelledInTransaction++;
+          } else if (map.isStreet(coord.x,coord.y)) {
+            if((abs(coord.x - prevCoord.x) === 1
+                && abs(coord.y - prevCoord.y) === 0)
+                || (abs(coord.x - prevCoord.x) === 0
+                && abs(coord.y - prevCoord.y) === 1)) {
+              prevCoord = coord;
+              distanceTravelled++;
+              if(state.hasPerson)
+                distanceTravelledInTransaction++;
+            } else {
+              console.error("Taxi can't travel more than 1 unit horizontal or vertical " + i + "in data");
+              return;
+            }
           } else {
-            console.error("Taxi can't travel more than 1 unit horizontal or vertical " + i + "in data");
+            console.error("Not valid coordinate at index " + i + "in data at coordinate (" +x+ "," + "y"+")");
             return;
           }
-        } else {
-          console.error("Not valid coordinate at index " + i + "in data at coordinate (" +x+ "," + "y"+")");
-          return;
         }
       } else {
         console.error("Data at index" + i + "has an invalid property");
