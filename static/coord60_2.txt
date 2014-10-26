@@ -1,4 +1,8 @@
 {
+    "taxi": {
+        "y": 23,
+        "x": 26
+    },
     "requests": [
         {
             "start": {
