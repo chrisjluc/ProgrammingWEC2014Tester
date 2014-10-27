@@ -26,6 +26,8 @@ requirejs(['map', 'validator', 'jquery'], function(Map, validator, $) {
   $("#submit").click(function() {
     // Get csv string from taxi locations
     var file = document.getElementById("taxi_locations_csv").files[0];
+    if(file === undefined)
+      return;
     var taxiLocationReader = new FileReader();
     console.log("Clicked submit");
     taxiLocationReader.onload = validator;

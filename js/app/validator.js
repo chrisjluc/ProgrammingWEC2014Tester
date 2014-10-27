@@ -1,14 +1,9 @@
-define("validator", ["jquery", "map"], function ($, map) {
+define("validator", ["jquery", "./map"], function ($, Map) {
   var validate = function(map, requests, dataArray) {
     console.log(map);
     console.log(requests);
-    // var map = {
-    //   start: {
-    //     'x': 0,
-    //     'y': 1
-    //   }
-    // };
-    var map = new Map()
+
+    var map = new Map(map, requests);
 
     // Holds previous taxi coordinates
     var prevCoord = null;

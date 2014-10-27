@@ -8,7 +8,7 @@ define('map', ['jquery'], function($) {
     // Map of coordinate (x, y) => name, symbol, destination
     this.pickup = parsePickup(requestText);
     // Map of coordinate(x, y) => destination
-    this.dropoff = parseDropoff(this.map, requestText);
+    this.dropoff = parseDropoff(this.map);
   }
 
   /**
@@ -116,10 +116,10 @@ define('map', ['jquery'], function($) {
     var mapText = mapText.split("\n");
     var length = mapText.length;
 
-    var map = new2DArray(length);
+    var map = initialize2DArray(length);
     for (var rowIndex=0; rowIndex<length; rowIndex++) {
       for (var colIndex=0; colIndex<length; colIndex++) {
-        var block = mapText[rowIndex].charAt(i);
+        var block = mapText[rowIndex].charAt(colIndex);
         switch (block) {
           case blockEnum.BUILDING:
             map[rowIndex][colIndex] = blockEnum.BUILDING;
@@ -132,6 +132,7 @@ define('map', ['jquery'], function($) {
         }
       }
     }
+    return map;
   }
 
   /**

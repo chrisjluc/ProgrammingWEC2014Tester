@@ -122,8 +122,8 @@
 		"action":"drive",
 		"x":5,
 		"y":2
-	}
-			{
-		"action":"dropoff"
 	},
+	{
+		"action":"dropoff"
+	}
 ]
