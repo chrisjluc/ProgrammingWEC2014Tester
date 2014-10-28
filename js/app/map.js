@@ -7,7 +7,8 @@ define('map', ['jquery'], function($) {
     this.map = parseMap(mapText);
     var requests = JSON.parse(requestText);
     this.taxiHq = requests.taxi;
-    this.reqs = parseRequests(requests.requests);
+    this.startReqs = parseStartRequests(requests.requests);
+    this.endReqs = parseStartRequests(requests.requests);
     this.pendingReqs = Object.keys(reqs);
   }
 
@@ -40,16 +41,27 @@ define('map', ['jquery'], function($) {
   /**
    * Returns a map of symbol to location
    */
-  function parseRequests(requests) {
+  function parseStartRequests(requests) {
     var reqs = {};
     for (i in requests) {
       var req = requests[i];
       var startSymbol = req.start.symbol;
-      var endSymbol = req.destination.symbol;
       reqs[startSymbol] = {
         "x": req.start.x,
         "y": req.start.y,
       }
+    }
+    return reqs;
+  }
+
+  /**
+   * Returns a map of end symbol to location
+   */
+  function parseEndRequests(requests) {
+    var reqs = {};
+    for (i in requests) {
+      var req = requests[i];
+      var endSymbol = req.destination.symbol;
       reqs[endSymbol] = {
         "x": req.destination.x,
         "y": req.destination.y,
@@ -92,8 +104,8 @@ define('map', ['jquery'], function($) {
    * Returns whether the coordinate is the pickup point
    */
   Map.prototype.isPickup = function(x, y) {
-    var coord = (x, y);
-    if (coord in this.pickup) {
+    var elem = this.map[y][x];
+    if (elem in this.startReqs) {
       return true;
     } else {
       return false;
@@ -104,52 +116,38 @@ define('map', ['jquery'], function($) {
    * Returns the name of the pickup
    */
   Map.prototype.getPickupName = function(x, y) {
-    var coord = (x, y);
-    if (coord in this.pickup) {
-      var data = this.pickup[coord];
-      return data.symbol;
+    var elem = this.map[y][x];
+    if (elem in this.startReqs) {
+      return elem;
     }
+    return null;
   }
 
   /**
    * Checks if the location is a taxi
    */
   Map.prototype.isValidStart = function(x, y) {
-    var elem = this.map[x][y];
-    if (elem == blockEnum.START) {
-      return true;
-    }
-    return false;
+    return x == this.taxiHq.x && y == this.taxiHq.y;
   }
 
   /**
    * Checks if the location is a street
    */
   Map.prototype.isValidStreet = function(x, y) {
-    var elem = this.map[x][y];
-    if (elem == blockEnum.STREET) {
-      return true;
-    }
-    return false;
+    var elem = this.map[y][x];
+    return elem == blockEnum.STREET;
   }
 
   /**
    * Returns whether the dropoff is the right location for a given symbol
    * If it returns false, it should throw an error
    */
-  Map.prototype.isDropoff = function(symbol, x, y) {
-    var coord = (x, y);
-    if (coord in this.dropoff) {
-      var dropoffSymbol = this.dropoff[coord];
-      for (pickup in this.pickup) {
-        if (pickup.destination == dropoffSymbol && pickup.symbol == symbol) {
-          return true;
-        }
-      }
-      return false;
-    } else {
-      return false;
+  Map.prototype.isDropoff = function(x, y) {
+    var elem = this.map[y][x];
+    if (elem in this.endReqs) {
+      return true;
     }
+    return false;
   }
 
   /**
