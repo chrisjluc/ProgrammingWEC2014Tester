@@ -1,5 +1,5 @@
 define("validator", ["jquery", "./map"], function ($, Map) {
-  var validate = function(map, requests, taxiActions) {
+  var validate = function(map, requests, taxiActionsList) {
     console.log(map);
     console.log(requests);
 
@@ -8,10 +8,10 @@ define("validator", ["jquery", "./map"], function ($, Map) {
     // for each taxi as we iterate through the actions
     var arrayOfTaxiData = [];
 
-    for (var taxiId in taxiActions) {
-      if (!taxiActions.hasOwnProperty(taxiId))
+    for (var taxiId in taxiActionsList) {
+      if (!taxiActionsList.hasOwnProperty(taxiId))
         continue;
-      var taxiActions = taxiActions[taxiId];
+      var taxiActions = taxiActionsList[taxiId];
 
       // Holds previous taxi coordinates
       var prevCoord = null;
@@ -74,11 +74,11 @@ define("validator", ["jquery", "./map"], function ($, Map) {
                 if(taxiState.hasPerson)
                   taxiData.distanceTravelledInTransaction++;
               } else {
-                console.error("Taxi: "+taxiId+" can't travel more than 1 unit horizontal or vertical " + i + "in data");
+                console.error("Taxi: "+taxiId+" can't travel more than 1 unit horizontal or vertical " + i + " in data");
                 return;
               }
             } else {
-              console.error("Not valid coordinate at index " + i + "for taxi: "+taxiId+" in data at coordinate (" +x+ "," + "y"+")");
+              console.error("Not valid coordinate at index " + i + "for taxi: "+taxiId+" in data at coordinate (" +x+ "," + y+")");
               return;
             }
           }else{
@@ -98,12 +98,13 @@ define("validator", ["jquery", "./map"], function ($, Map) {
     var costPerUnitDistance = 1;
     var initializationCostPerTaxi = 5;
 
-    var cost = 0, revenue = 0;
+    var cost = 0, revenue = 0, waitTime = 0;
 
     for(var i = 0; i < arrayOfTaxiData.length; i++){
       var taxiData = arrayOfTaxiData[i];
       cost += parseInt(taxiData.distanceTravelled) * costPerUnitDistance;
       revenue += parseInt(taxiData.distanceTravelledInTransaction) * revenuePerUnitDistance;
+      waitTime += parseInt(taxiData.waitTimeForCustomers);
     }
 
     cost += initializationCostPerTaxi * arrayOfTaxiData.length;
@@ -112,6 +113,7 @@ define("validator", ["jquery", "./map"], function ($, Map) {
     console.log("Profit: "+ profit);
     console.log("Revenue: "+ revenue);
     console.log("Cost: "+ cost);
+    console.log("Wait time: " + waitTime);
   };
 
   var loadTaxiLocationHandler = function(event) {
