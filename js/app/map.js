@@ -9,7 +9,6 @@ define('map', ['jquery'], function($) {
     this.taxiHq = requests.taxi;
     this.startReqs = parseStartRequests(requests.requests);
     this.endReqs = parseStartRequests(requests.requests);
-    this.pendingReqs = Object.keys(reqs);
   }
 
   /**
