@@ -52,11 +52,11 @@ define("validator", ["jquery", "./map"], function ($, Map) {
             taxiState.hasPerson = false;
           } else if(data.action === 'start' && data.hasOwnProperty('x') && data.hasOwnProperty('y')){
             if (prevCoord == null) {
-              if (!map.isStart(data.x,data.y)) {
+              if (!map.isValidStart(data.x,data.y)) {
                 console.error("Wrong start coordinates");
                 return;
               }
-              prevCoord = coord;
+              prevCoord = data;
             } else {
               console.error("Can't have multiple start actions for a taxi");
               return;
@@ -64,11 +64,11 @@ define("validator", ["jquery", "./map"], function ($, Map) {
           }else if (data.action === 'drive' && data.hasOwnProperty('x') && data.hasOwnProperty('y')) {
             coord = data;
             // Make sure start taxiState is valid
-            if (map.isStreet(coord.x,coord.y)) {
-              if((abs(coord.x - prevCoord.x) === 1
-                  && abs(coord.y - prevCoord.y) === 0)
-                  || (abs(coord.x - prevCoord.x) === 0
-                  && abs(coord.y - prevCoord.y) === 1)) {
+            if (map.isValidStreet(coord.x,coord.y)) {
+              if((Math.abs(coord.x - prevCoord.x) === 1
+                  && Math.abs(coord.y - prevCoord.y) === 0)
+                  || (Math.abs(coord.x - prevCoord.x) === 0
+                  && Math.abs(coord.y - prevCoord.y) === 1)) {
                 prevCoord = coord;
                 taxiData.distanceTravelled++;
                 if(taxiState.hasPerson)
@@ -100,19 +100,18 @@ define("validator", ["jquery", "./map"], function ($, Map) {
 
     var cost = 0, revenue = 0;
 
-    for(var taxiData in arrayOfTaxiData){
-      cost += taxiData.distanceTravelled * costPerUnitDistance;
-      revenue += taxiData.distanceTravelledInTransaction * revenuePerUnitDistance;
+    for(var i = 0; i < arrayOfTaxiData.length; i++){
+      var taxiData = arrayOfTaxiData[i];
+      cost += parseInt(taxiData.distanceTravelled) * costPerUnitDistance;
+      revenue += parseInt(taxiData.distanceTravelledInTransaction) * revenuePerUnitDistance;
     }
 
-    cost -= initializationCostPerTaxi * arrayOfTaxiData.length;
+    cost += initializationCostPerTaxi * arrayOfTaxiData.length;
     var profit = revenue - cost;
 
     console.log("Profit: "+ profit);
     console.log("Revenue: "+ revenue);
     console.log("Cost: "+ cost);
-
-    alert("Good to go!");
   };
 
   var loadTaxiLocationHandler = function(event) {
