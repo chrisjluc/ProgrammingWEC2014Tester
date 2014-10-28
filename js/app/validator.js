@@ -53,12 +53,12 @@ define("validator", ["jquery", "./map"], function ($, Map) {
           } else if(data.action === 'start' && data.hasOwnProperty('x') && data.hasOwnProperty('y')){
             if (prevCoord == null) {
               if (!map.isValidStart(data.x,data.y)) {
-                console.error("Wrong start coordinates");
+                console.error("Wrong start coordinates for taxi: " + taxiId);
                 return;
               }
               prevCoord = data;
             } else {
-              console.error("Can't have multiple start actions for a taxi");
+              console.error("Can't have multiple start actions for a taxi: " + taxiId);
               return;
             } 
           }else if (data.action === 'drive' && data.hasOwnProperty('x') && data.hasOwnProperty('y')) {
@@ -74,11 +74,11 @@ define("validator", ["jquery", "./map"], function ($, Map) {
                 if(taxiState.hasPerson)
                   taxiData.distanceTravelledInTransaction++;
               } else {
-                console.error("Taxi can't travel more than 1 unit horizontal or vertical " + i + "in data");
+                console.error("Taxi: "+taxiId+" can't travel more than 1 unit horizontal or vertical " + i + "in data");
                 return;
               }
             } else {
-              console.error("Not valid coordinate at index " + i + "in data at coordinate (" +x+ "," + "y"+")");
+              console.error("Not valid coordinate at index " + i + "for taxi: "+taxiId+" in data at coordinate (" +x+ "," + "y"+")");
               return;
             }
           }else{
