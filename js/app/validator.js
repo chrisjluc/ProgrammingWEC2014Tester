@@ -9,7 +9,7 @@ define("validator", ["jquery", "./map"], function ($, Map) {
     var arrayOfTaxiData = [];
 
     for (var taxiId in taxiActions) {
-      if (!obj.hasOwnProperty(taxiId))
+      if (!taxiActions.hasOwnProperty(taxiId))
         continue;
       var taxiActions = taxiActions[taxiId];
 
