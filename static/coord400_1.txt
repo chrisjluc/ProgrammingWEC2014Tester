@@ -1,57 +1,67 @@
 {
     "taxi": {
-        "y": 258,
-        "x": 203
+        "y": 37,
+        "x": 218
     },
     "requests": [
         {
             "start": {
-                "y": 229,
-                "x": 5
+                "y": 285,
+                "x": 40,
+                "symbol": "A"
             },
             "destination": {
-                "y": 180,
-                "x": 78
+                "y": 95,
+                "x": 306,
+                "symbol": "a"
             }
         },
         {
             "start": {
-                "y": 50,
-                "x": 355
+                "y": 125,
+                "x": 290,
+                "symbol": "C"
             },
             "destination": {
-                "y": 265,
-                "x": 195
+                "y": 291,
+                "x": 73,
+                "symbol": "c"
             }
         },
         {
             "start": {
-                "y": 62,
-                "x": 177
+                "y": 86,
+                "x": 352,
+                "symbol": "B"
             },
             "destination": {
-                "y": 392,
-                "x": 390
+                "y": 277,
+                "x": 1,
+                "symbol": "b"
             }
         },
         {
             "start": {
-                "y": 367,
-                "x": 390
+                "y": 307,
+                "x": 6,
+                "symbol": "E"
             },
             "destination": {
+                "y": 8,
+                "x": 73,
+                "symbol": "e"
+            }
+        },
+        {
+            "start": {
                 "y": 329,
-                "x": 2
-            }
-        },
-        {
-            "start": {
-                "y": 332,
-                "x": 345
+                "x": 378,
+                "symbol": "D"
             },
             "destination": {
-                "y": 158,
-                "x": 302
+                "y": 126,
+                "x": 214,
+                "symbol": "d"
             }
         }
     ]

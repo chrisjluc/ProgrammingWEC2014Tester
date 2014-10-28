@@ -5,10 +5,77 @@ define('map', ['jquery'], function($) {
   function Map(mapText, requestText) {
     // 2D array, each element is a blockEnum, so either STREET or BUILDING
     this.map = parseMap(mapText);
-    // Map of coordinate (x, y) => name, symbol, destination
-    this.pickup = parsePickup(requestText);
-    // Map of coordinate(x, y) => destination
-    this.dropoff = parseDropoff(this.map);
+    var requests = JSON.parse(requestText);
+    this.taxiHq = requests.taxi;
+    this.reqs = parseRequests(requests.requests);
+    this.pendingReqs = Object.keys(reqs);
+  }
+
+  /**
+   * Returns a 2D array of the map
+   */
+  function parseMap(mapText) {
+    var mapText = mapText.split("\n");
+    var length = mapText.length;
+
+    var map = initialize2DArray(length);
+    for (var rowIndex=0; rowIndex<length; rowIndex++) {
+      for (var colIndex=0; colIndex<length; colIndex++) {
+        var block = mapText[rowIndex].charAt(colIndex);
+        switch (block) {
+          case blockEnum.BUILDING:
+            map[rowIndex][colIndex] = blockEnum.BUILDING;
+            break;
+          case blockEnum.STREET:
+          default:
+            // If it's a T(taxi), or a person, it's a street since
+            // a taxi can go over a person
+            map[rowIndex][colIndex] = blockEnum.STREET;
+        }
+      }
+    }
+    return map;
+  }
+
+  /**
+   * Returns a map of symbol to location
+   */
+  function parseRequests(requests) {
+    var reqs = {};
+    for (i in requests) {
+      var req = requests[i];
+      var startSymbol = req.start.symbol;
+      var endSymbol = req.destination.symbol;
+      reqs[startSymbol] = {
+        "x": req.start.x,
+        "y": req.start.y,
+      }
+      reqs[endSymbol] = {
+        "x": req.destination.x,
+        "y": req.destination.y,
+      }
+    }
+    return reqs;
+  }
+
+  /**
+   * Returns the symbol of the destination
+   * A => a
+   * B => b
+   */
+  function getDestinationSymbol(startSymbol) {
+    var ascii = startSymbol.charCodeAt(0) + 32;
+    return String.fromCharCode(ascii);
+  }
+
+  /**
+   * Returns the symbol of the start
+   * a => A
+   * b => B
+   */
+  function getStartSymbol(endSymbol) {
+    var ascii = startSymbol.charCodeAt(0) - 32;
+    return String.fromCharCode(ascii);
   }
 
   /**
@@ -85,73 +152,6 @@ define('map', ['jquery'], function($) {
     }
   }
 
-  /**
-   * Returns a map of coord to a JSON containing data on the coordinate
-   */
-  function parsePickup(requestText) {
-    var json = JSON.parse(requestText);
-    if (typeof(json) === "undefined") {
-      console.error("Undefined file");
-      return;
-    }
-    var requests = json.requests;
-    var pickup = {};
-    for (var i=0; i<requests.length; i++) {
-      // TODO: Coordinates will not be given in the initial file,
-      // must find it ourselves
-      var coord = (requests[i].x, requests[i].y);
-      pickup[coord] = {
-        "name": requests[i].name,
-        "symbol": requests[i].symbol,
-        "destination": requests[i].destination,
-      };
-    }
-    return pickup;
-  }
-
-  /**
-   * Returns a 2D array of the map
-   */
-  function parseMap(mapText) {
-    var mapText = mapText.split("\n");
-    var length = mapText.length;
-
-    var map = initialize2DArray(length);
-    for (var rowIndex=0; rowIndex<length; rowIndex++) {
-      for (var colIndex=0; colIndex<length; colIndex++) {
-        var block = mapText[rowIndex].charAt(colIndex);
-        switch (block) {
-          case blockEnum.BUILDING:
-            map[rowIndex][colIndex] = blockEnum.BUILDING;
-            break;
-          case blockEnum.STREET:
-          default:
-            // If it's a T(taxi), or a person, it's a street since
-            // a taxi can go over a person
-            map[rowIndex][colIndex] = blockEnum.STREET;
-        }
-      }
-    }
-    return map;
-  }
-
-  /**
-   * Returns a map of the coordinate to the symbol of the
-   * destination
-   */
-  function parseDropoff(map) {
-    var dropoffs = {};
-    for (var rowIndex=0; rowIndex<map.length; rowIndex++) {
-      var row = map[rowIndex];
-      for (var colIndex=0; colIndex<row.length; colIndex++) {
-        if (isInt(row[colIndex])) {
-          var coord = (rowIndex, colIndex);
-          dropoffs[coord] = row[colIndex];
-        }
-      }
-    }
-    return dropoffs;
-  }
   /**
    * Creates a new 2D array
    */

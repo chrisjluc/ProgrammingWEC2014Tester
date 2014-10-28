@@ -1,8 +1,8 @@
 XXXXXXXX
-Xa    TX
-XX X  BX
-XX XX XX
-XA XX  X
-X  XX  X
-X  b   X
+XABa D X
+X XXX XX
+X XXXCXX
+X XXX  X
+XTcXX eX
+X   bdEX
 XXXXXXXX
