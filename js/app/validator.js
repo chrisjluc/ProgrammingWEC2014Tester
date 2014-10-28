@@ -50,9 +50,9 @@ define("validator", ["jquery", "./map"], function ($, Map) {
               return;
             }
             taxiState.hasPerson = false;
-          } else if(data.action === 'start'){
+          } else if(data.action === 'start' && data.hasOwnProperty('x') && data.hasOwnProperty('y')){
             if (prevCoord == null) {
-              if (!map.isStart(coord.x,coord.y)) {
+              if (!map.isStart(data.x,data.y)) {
                 console.error("Wrong start coordinates");
                 return;
               }
