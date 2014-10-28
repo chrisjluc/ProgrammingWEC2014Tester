@@ -1,57 +1,67 @@
 {
     "taxi": {
-        "y": 62,
-        "x": 76
+        "y": 179,
+        "x": 158
     },
     "requests": [
         {
             "start": {
-                "y": 180,
-                "x": 145
+                "y": 147,
+                "x": 97,
+                "symbol": "A"
             },
             "destination": {
+                "y": 190,
+                "x": 49,
+                "symbol": "a"
+            }
+        },
+        {
+            "start": {
+                "y": 38,
+                "x": 190,
+                "symbol": "C"
+            },
+            "destination": {
+                "y": 178,
+                "x": 109,
+                "symbol": "c"
+            }
+        },
+        {
+            "start": {
                 "y": 25,
-                "x": 197
+                "x": 11,
+                "symbol": "B"
+            },
+            "destination": {
+                "y": 101,
+                "x": 165,
+                "symbol": "b"
             }
         },
         {
             "start": {
-                "y": 97,
-                "x": 85
+                "y": 46,
+                "x": 40,
+                "symbol": "E"
             },
             "destination": {
-                "y": 62,
-                "x": 133
+                "y": 198,
+                "x": 173,
+                "symbol": "e"
             }
         },
         {
             "start": {
-                "y": 94,
-                "x": 69
+                "y": 173,
+                "x": 73,
+                "symbol": "D"
             },
             "destination": {
-                "y": 151,
-                "x": 70
-            }
-        },
-        {
-            "start": {
-                "y": 44,
-                "x": 177
-            },
-            "destination": {
-                "y": 103,
-                "x": 194
-            }
-        },
-        {
-            "start": {
-                "y": 126,
-                "x": 12
-            },
-            "destination": {
-                "y": 21,
-                "x": 101
+                "y": 38,
+                "x": 181,
+                "symbol": "d"
             }
         }
     ]
