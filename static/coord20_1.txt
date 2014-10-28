@@ -1,67 +1,31 @@
 {
     "taxi": {
-        "y": 2,
-        "x": 10
+        "y": 9,
+        "x": 6
     },
     "requests": [
         {
             "start": {
-                "y": 18,
-                "x": 4,
+                "y": 5,
+                "x": 14,
                 "symbol": "A"
             },
             "destination": {
-                "y": 1,
-                "x": 9,
+                "y": 17,
+                "x": 13,
                 "symbol": "a"
             }
         },
         {
             "start": {
-                "y": 13,
-                "x": 4,
+                "y": 5,
+                "x": 10,
                 "symbol": "B"
             },
             "destination": {
-                "y": 14,
-                "x": 18,
+                "y": 9,
+                "x": 10,
                 "symbol": "b"
-            }
-        },
-        {
-            "start": {
-                "y": 8,
-                "x": 14,
-                "symbol": "E"
-            },
-            "destination": {
-                "y": 18,
-                "x": 7,
-                "symbol": "e"
-            }
-        },
-        {
-            "start": {
-                "y": 13,
-                "x": 1,
-                "symbol": "D"
-            },
-            "destination": {
-                "y": 16,
-                "x": 5,
-                "symbol": "d"
-            }
-        },
-        {
-            "start": {
-                "y": 15,
-                "x": 18,
-                "symbol": "C"
-            },
-            "destination": {
-                "y": 1,
-                "x": 11,
-                "symbol": "c"
             }
         }
     ]
