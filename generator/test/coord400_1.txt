@@ -1,0 +1,104 @@
+{
+    "taxi": {
+        "y": 293,
+        "x": 57
+    },
+    "requests": [
+        {
+            "start": {
+                "y": 222,
+                "x": 236,
+                "symbol": "A"
+            },
+            "destination": {
+                "y": 79,
+                "x": 142,
+                "symbol": "a"
+            }
+        },
+        {
+            "start": {
+                "y": 157,
+                "x": 331,
+                "symbol": "C"
+            },
+            "destination": {
+                "y": 190,
+                "x": 80,
+                "symbol": "c"
+            }
+        },
+        {
+            "start": {
+                "y": 89,
+                "x": 73,
+                "symbol": "B"
+            },
+            "destination": {
+                "y": 398,
+                "x": 26,
+                "symbol": "b"
+            }
+        },
+        {
+            "start": {
+                "y": 101,
+                "x": 190,
+                "symbol": "F"
+            },
+            "destination": {
+                "y": 369,
+                "x": 6,
+                "symbol": "f"
+            }
+        },
+        {
+            "start": {
+                "y": 122,
+                "x": 285,
+                "symbol": "H"
+            },
+            "destination": {
+                "y": 381,
+                "x": 61,
+                "symbol": "h"
+            }
+        },
+        {
+            "start": {
+                "y": 336,
+                "x": 298,
+                "symbol": "G"
+            },
+            "destination": {
+                "y": 134,
+                "x": 255,
+                "symbol": "g"
+            }
+        },
+        {
+            "start": {
+                "y": 254,
+                "x": 262,
+                "symbol": "E"
+            },
+            "destination": {
+                "y": 144,
+                "x": 41,
+                "symbol": "e"
+            }
+        },
+        {
+            "start": {
+                "y": 350,
+                "x": 285,
+                "symbol": "D"
+            },
+            "destination": {
+                "y": 130,
+                "x": 266,
+                "symbol": "d"
+            }
+        }
+    ]
+}

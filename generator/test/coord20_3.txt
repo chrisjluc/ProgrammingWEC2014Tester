@@ -1,0 +1,32 @@
+{
+    "taxi": {
+        "y": 8,
+        "x": 9
+    },
+    "requests": [
+        {
+            "start": {
+                "y": 2,
+                "x": 17,
+                "symbol": "A"
+            },
+            "destination": {
+                "y": 1,
+                "x": 1,
+                "symbol": "a"
+            }
+        },
+        {
+            "start": {
+                "y": 10,
+                "x": 13,
+                "symbol": "B"
+            },
+            "destination": {
+                "y": 10,
+                "x": 11,
+                "symbol": "b"
+            }
+        }
+    ]
+}
