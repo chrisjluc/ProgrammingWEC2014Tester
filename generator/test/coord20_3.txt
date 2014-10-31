@@ -1,32 +1,52 @@
 {
-    "taxi": {
-        "y": 8,
-        "x": 9
-    },
     "requests": [
         {
-            "start": {
-                "y": 2,
-                "x": 17,
-                "symbol": "A"
+            "dropoff": {
+                "y": 11,
+                "x": 2
             },
-            "destination": {
-                "y": 1,
-                "x": 1,
-                "symbol": "a"
-            }
+            "pickup": {
+                "y": 10,
+                "x": 13
+            },
+            "id": 1
         },
         {
-            "start": {
-                "y": 10,
-                "x": 13,
-                "symbol": "B"
+            "dropoff": {
+                "y": 14,
+                "x": 11
             },
-            "destination": {
-                "y": 10,
-                "x": 11,
-                "symbol": "b"
-            }
+            "pickup": {
+                "y": 7,
+                "x": 1
+            },
+            "id": 2
+        },
+        {
+            "dropoff": {
+                "y": 14,
+                "x": 16
+            },
+            "pickup": {
+                "y": 14,
+                "x": 4
+            },
+            "id": 3
+        },
+        {
+            "dropoff": {
+                "y": 12,
+                "x": 1
+            },
+            "pickup": {
+                "y": 18,
+                "x": 18
+            },
+            "id": 4
         }
-    ]
+    ],
+    "taxiHeadquarter": {
+        "y": 1,
+        "x": 4
+    }
 }

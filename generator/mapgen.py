@@ -1,5 +1,20 @@
 import random, math, sys
-from block_enum import Element, format_block
+from enum import Enum
+
+class Element(Enum):
+    STREET = " "
+    BUILDING = "X"
+    PERSON = 2
+
+def format_block(element_enum):
+    if element_enum == Element.STREET:
+        return " "
+    elif element_enum == Element.BUILDING:
+        return "X"
+    elif element_enum == Element.PERSON:
+        return "2"
+    else:
+        return element_enum
 
 class CityMap:
     def __init__(self, width, height):
@@ -80,7 +95,7 @@ class CityMap:
                 if y+1 < self.height:
                     if self.maze[y+1][x-i] == Element.STREET:
                         break
-
+        '''
         num = 0
         if self.width < 50:
             num = 2
@@ -98,6 +113,7 @@ class CityMap:
             self.set_elem(start_coord, symbol)
             self.set_elem(end_coord, end_symbol)
             symbol = chr(ord(symbol) + 1)
+            '''
 
         taxi_hq = (0, 0)
         while self.is_not_street(taxi_hq):
