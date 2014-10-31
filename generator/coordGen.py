@@ -82,7 +82,7 @@ class RequestBuilder:
             output["requests"].append(request)
         '''
         result = json.dumps(output, indent=4, separators=(',', ': '))
-        outputFile = open("test/coord"+self.name+".txt", "w")
+        outputFile = open("test/requests"+self.name+".txt", "w")
         outputFile.write(result)
 
 if __name__ == "__main__":
