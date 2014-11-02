@@ -119,7 +119,7 @@ define('map', ['jquery'], function($) {
    */
   Map.prototype.isPickup = function (x, y) {
       if (this.map[y][x] == blockEnum.STREET) {
-          for (i = 1; i < this.startReqs.length + 1; i++) {
+          for (i in this.startReqs) {
               if (this.startReqs[i].x == x && this.startReqs[i].y == y)
                   return true;
           }
@@ -170,7 +170,7 @@ define('map', ['jquery'], function($) {
 
   Map.prototype.isDropoff = function (x, y) {
       if (this.map[y][x] == blockEnum.STREET) {
-          for (i = 1; i < this.endReqs.length + 1; i++) {
+          for (i in this.endReqs) {
               if (this.endReqs[i].x == x && this.endReqs[i].y == y)
                   return true;
           }
