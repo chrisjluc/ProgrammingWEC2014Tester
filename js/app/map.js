@@ -6,9 +6,11 @@ define('map', ['jquery'], function($) {
     // 2D array, each element is a blockEnum, so either STREET or BUILDING
     this.map = parseMap(mapText);
     var requests = JSON.parse(requestText);
-    this.taxiHq = requests.taxi;
+    this.taxiHq = requests.taxiHeadquarter;
+   // this.taxiHq = requests.taxi;
     this.startReqs = parseStartRequests(requests.requests);
-    this.endReqs = parseStartRequests(requests.requests);
+    this.endReqs = parseEndRequests(requests.requests);
+   // this.endReqs = parseStartRequests(requests.requests);
   }
 
   /**
@@ -39,32 +41,44 @@ define('map', ['jquery'], function($) {
 
   /**
    * Returns a map of symbol to location
+   *UPDATED: Returns a map of request id to pickup location
    */
   function parseStartRequests(requests) {
     var reqs = {};
     for (i in requests) {
-      var req = requests[i];
-      var startSymbol = req.start.symbol;
-      reqs[startSymbol] = {
-        "x": req.start.x,
-        "y": req.start.y,
-      }
+        var req = requests[i];
+        var requestId = req.id;
+        reqs[requestId] = {
+            "x": req.pickup.x,
+            "y": req.pickup.y,
+        }
+      //var startSymbol = req.start.symbol;
+      //reqs[startSymbol] = {
+      //  "x": req.start.x,
+      //  "y": req.start.y,
+      //}
     }
     return reqs;
   }
 
   /**
    * Returns a map of end symbol to location
+   *UPDATED: Returns  map of request id to dropoff location
    */
   function parseEndRequests(requests) {
     var reqs = {};
     for (i in requests) {
-      var req = requests[i];
-      var endSymbol = req.destination.symbol;
-      reqs[endSymbol] = {
-        "x": req.destination.x,
-        "y": req.destination.y,
-      }
+        var req = requests[i];
+        var requestId = req.id;
+        reqs[requestId] = {
+            "x": req.dropoff.x,
+            "y": req.dropoff.y,
+        }
+      //var endSymbol = req.destination.symbol;
+      //reqs[endSymbol] = {
+      //  "x": req.destination.x,
+      //  "y": req.destination.y,
+      //}
     }
     return reqs;
   }
@@ -74,21 +88,22 @@ define('map', ['jquery'], function($) {
    * A => a
    * B => b
    */
-  function getDestinationSymbol(startSymbol) {
-    var ascii = startSymbol.charCodeAt(0) + 32;
-    return String.fromCharCode(ascii);
-  }
+  //function getDestinationSymbol(startSymbol) {
+  //  var ascii = startSymbol.charCodeAt(0) + 32;
+  //  return String.fromCharCode(ascii);
+  //}
 
   /**
    * Returns the symbol of the start
    * a => A
    * b => B
    */
-  function getStartSymbol(endSymbol) {
-    var ascii = startSymbol.charCodeAt(0) - 32;
-    return String.fromCharCode(ascii);
-  }
+  //function getStartSymbol(endSymbol) {
+  //  var ascii = startSymbol.charCodeAt(0) - 32;
+  //  return String.fromCharCode(ascii);
+  //}
 
+    
   /**
    * Prints out the map
    */
