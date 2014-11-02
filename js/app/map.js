@@ -117,25 +117,36 @@ define('map', ['jquery'], function($) {
   /**
    * Returns whether the coordinate is the pickup point
    */
-  Map.prototype.isPickup = function(x, y) {
-    var elem = this.map[y][x];
-    if (elem in this.startReqs) {
-      return true;
-    } else {
+  Map.prototype.isPickup = function (x, y) {
+      if (this.map[y][x] == blockEnum.STREET) {
+          for (i = 1; i < this.startReqs.length + 1; i++) {
+              if (this.startReqs[i].x == x && this.startReqs[i].y == y)
+                  return true;
+          }
+      }
       return false;
-    }
   }
+
+    //Map.prototype.isPickup = function(x, y) {
+  //  var elem = this.map[y][x];
+  //  if (elem in this.startReqs) {
+  //    return true;
+  //  } else {
+  //    return false;
+  //  }
+  //}
+
 
   /**
    * Returns the name of the pickup
    */
-  Map.prototype.getPickupName = function(x, y) {
-    var elem = this.map[y][x];
-    if (elem in this.startReqs) {
-      return elem;
-    }
-    return null;
-  }
+  //Map.prototype.getPickupName = function(x, y) {
+  //  var elem = this.map[y][x];
+  //  if (elem in this.startReqs) {
+  //    return elem;
+  //  }
+  //  return null;
+  //}
 
   /**
    * Checks if the location is a taxi
@@ -156,13 +167,25 @@ define('map', ['jquery'], function($) {
    * Returns whether the dropoff is the right location for a given symbol
    * If it returns false, it should throw an error
    */
-  Map.prototype.isDropoff = function(x, y) {
-    var elem = this.map[y][x];
-    if (elem in this.endReqs) {
-      return true;
-    }
-    return false;
+
+  Map.prototype.isDropoff = function (x, y) {
+      if (this.map[y][x] == blockEnum.STREET) {
+          for (i = 1; i < this.endReqs.length + 1; i++) {
+              if (this.endReqs[i].x == x && this.endReqs[i].y == y)
+                  return true;
+          }
+      }
+      return false;
   }
+
+  //Map.prototype.isDropoff = function(x, y) {
+  //  var elem = this.map[y][x];
+  //  if (elem in this.endReqs) {
+  //    return true;
+  //  }
+  //  return false;
+  //}
+
 
   /**
    * Creates a new 2D array
