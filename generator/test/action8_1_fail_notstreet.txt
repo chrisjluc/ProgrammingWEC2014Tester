@@ -1,0 +1,29 @@
+{
+    "taxi1": [
+        {
+            "action": "start",
+            "x": 1,
+            "y": 5
+        },
+        {
+            "action": "drive",
+            "x": 2,
+            "y": 5
+        },
+        {
+            "action": "drive",
+            "x": 3,
+            "y": 5
+        },
+        {
+            "action": "drive",
+            "x": 4,
+            "y": 5
+        },
+        {
+            "action": "drive",
+            "x": 4,
+            "y": 4
+        }
+    ]
+}

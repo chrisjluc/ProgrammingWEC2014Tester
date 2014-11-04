@@ -1,0 +1,12 @@
+{
+    "taxi1": [
+        {
+            "action": "drive",
+            "x": 1,
+            "y": 6
+        },
+        {
+            "action": "dropoff"
+        }
+    ]
+}

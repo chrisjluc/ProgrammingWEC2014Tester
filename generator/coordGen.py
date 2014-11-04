@@ -7,7 +7,7 @@ class RequestBuilder:
         self.numRequests = numRequests
 
     def is_not_street(self, coord):
-        return self.map[coord[0]][coord[1]] != " "
+        return self.map[coord[1]][coord[0]] != " "
 
     def gen_single_random_coord(self):
         x = int(math.floor(random.random() * self.width))

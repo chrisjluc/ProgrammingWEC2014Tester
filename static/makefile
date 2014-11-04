@@ -1,2 +1,0 @@
-move:
-	cp *.txt ../../static/
