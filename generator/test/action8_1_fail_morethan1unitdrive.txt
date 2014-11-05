@@ -11,7 +11,8 @@
             "y": 6
         },
         {
-            "action": "pickup"
+            "action": "pickup",
+            "id":1
         },
         {
             "action": "drive",
@@ -54,7 +55,8 @@
             "y": 3
         },
         {
-            "action": "dropoff"
+            "action": "dropoff",
+            "id":1
         }
     ],
     "taxi2": [
@@ -74,7 +76,8 @@
             "y": 3
         },
         {
-            "action": "pickup"
+            "action": "pickup",
+            "id":2
         },
         {
             "action": "drive",
@@ -87,7 +90,8 @@
             "y": 2
         },
         {
-            "action": "dropoff"
+            "action": "dropoff",
+            "id":2
         }
     ]
 }

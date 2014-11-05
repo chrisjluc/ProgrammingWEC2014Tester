@@ -6,7 +6,8 @@
             "y": 6
         },
         {
-            "action": "dropoff"
+            "action": "dropoff",
+            "id":1
         }
     ]
 }
