@@ -31,26 +31,6 @@
         },
         {
             "action": "drive",
-            "x": 3,
-            "y": 6
-        },
-        {
-            "action": "drive",
-            "x": 4,
-            "y": 6
-        },
-        {
-            "action": "drive",
-            "x": 3,
-            "y": 6
-        },
-        {
-            "action": "drive",
-            "x": 4,
-            "y": 6
-        },
-        {
-            "action": "drive",
             "x": 5,
             "y": 6
         },
