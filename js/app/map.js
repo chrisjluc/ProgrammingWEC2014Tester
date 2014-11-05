@@ -87,6 +87,7 @@ define('map', ['jquery'], function($) {
   function parseReqIds(requests) {
       var reqs = {};
       for (i in requests) {
+          var req = requests[i];
           var requestId = req.id;
           reqs[requestId] = {
               "id":req.id,

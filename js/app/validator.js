@@ -1,14 +1,18 @@
 define("validator", ["jquery", "./map"], function ($, Map) {
+  var scope = this;
+  this.actionFileNames = [];
+  this.index = 0;
+
   var validate = function(map, requests, taxiActionsList) {
-    console.log(map);
-    console.log(requests);
+    // console.log(map);
+    // console.log(requests);
 
     var map = new Map(map, requests);
     // Used to hold distance travelled and wait time
     // for each taxi as we iterate through the actions
     var arrayOfTaxiData = [];
     
-    var reqStatuses = map.getRequests;
+    var reqStatuses = map.getRequests();
     for (var taxiId in taxiActionsList) {
       if (!taxiActionsList.hasOwnProperty(taxiId))
         continue;
@@ -40,13 +44,13 @@ define("validator", ["jquery", "./map"], function ($, Map) {
         if (data.hasOwnProperty('action')) {
           if (data.action === 'pickup') {
             if (taxiState.hasPerson) {
-              console.error("Can't start new transaction, when you're in the middle of transaction (At index "+ i );
-              return;
+              console.log("Can't start new transaction, when you're in the middle of transaction (At index "+ i + ") for taxi: " + taxiId );
+              return false;
             }
            //pickup state needs to have an id
             if (!map.isPickup(prevData.x, prevData.y, data.id)) {
-                console.error("Not a valid pickup");
-                return;
+                console.log("Not a valid pickup");
+                return false;
             }
             pickupid = data.id;
             taxiState.hasPerson = true;
@@ -55,33 +59,37 @@ define("validator", ["jquery", "./map"], function ($, Map) {
 
           } else if (data.action === 'dropoff') {
             if (!taxiState.hasPerson) {
-              console.error("Can't end transaction, when you have no one in the taxi (At index "+ i );
-              return;
+              console.log("Can't end transaction, when you have no one in the taxi (At index "+ i + ") for taxi: " + taxiId );
+              return false;
             }
             //dropoff state needs to have an id
             if (!map.isDropoff(prevData.x, prevData.y, data.id)) {
-                console.error("Not a valid dropoff");
-                return;
+                console.log("Not a valid dropoff (At index "+ i + ") for taxi: " + taxiId);
+                return false;
             }
             dropoffid = data.id;
             if (dropoffid != pickupid)
             {
-                console.error("Dropoff does not correspond to pickup");
-                return;
+                console.log("Dropoff does not correspond to pickup (At index "+ i + ") for taxi: " + taxiId);
+                return false;
             }
             reqStatuses[dropoffid].done = true;
             taxiState.hasPerson = false;
           } else if(data.action === 'start' && data.hasOwnProperty('x') && data.hasOwnProperty('y')){
             if (prevCoord == null) {
               if (!map.isValidStart(data.x,data.y)) {
-                console.error("Wrong start coordinates for taxi: " + taxiId);
-                return;
+                console.log("Wrong start coordinates for taxi: " + taxiId);
+                return false;
               }
               prevCoord = data;
             } else {
-              console.error("Can't have multiple start actions for a taxi: " + taxiId);
-              return;
-            } 
+              console.log("Can't have multiple start actions for a taxi: " + taxiId);
+              return false;
+            }
+          }else if(prevCoord == null){
+            // Should never get to this state unless there was no start
+            console.log("No start action for taxi: "+taxiId);
+            return false;
           }else if (data.action === 'drive' && data.hasOwnProperty('x') && data.hasOwnProperty('y')) {
             coord = data;
             // Make sure start taxiState is valid
@@ -95,35 +103,36 @@ define("validator", ["jquery", "./map"], function ($, Map) {
                 if(taxiState.hasPerson)
                   taxiData.distanceTravelledInTransaction++;
               } else {
-                console.error("Taxi: "+taxiId+" can't travel more than 1 unit horizontal or vertical " + i + " in data");
-                return;
+                console.log("Taxi: "+taxiId+" can't travel more than 1 unit horizontal or vertical at index " + i + " in actions");
+                return false;
               }
             } else {
-              console.error("Not valid coordinate at index " + i + "for taxi: "+taxiId+" in data at coordinate (" +x+ "," + y+")");
-              return;
+              console.log("Not valid coordinate at index " + i + "for taxi: "+taxiId+" in data at coordinate (" +coord.x+ "," + coord.y+")");
+              return false;
             }
           }else{
-            console.error("Invalid action for taxi: "+taxiId+" at index" + i + "has an invalid property");
-            return;
+            console.log("Invalid action for taxi: "+taxiId+" at index " + i + " has an invalid property");
+            return false;
           }
         } else {
-          console.error("Data at index" + i + "has an invalid property");
-          return;
+          console.log("Data at index " + i + "has an invalid property for taxi: "+taxiId);
+          return false;
         }
         prevData = data;
       }
     arrayOfTaxiData.push(taxiData);
     }
 
-
+    var allCompleted = true;
     for (i in reqStatuses)
-    {
-        if (!reqStatuses[i].done)
-        {
-            console.error("Request" + reqStatuses[i].id + "not completed");
-            return;
-        }
-    }
+      if (!reqStatuses[i].done)
+      {
+        console.log("Customer request with id " + reqStatuses[i].id + " is not completed");
+        allCompleted = false;
+      }
+      
+    if(!allCompleted)
+      return false;
 
     //Constants for calculating revenue and cost
     var revenuePerUnitDistance = 5;
@@ -146,22 +155,40 @@ define("validator", ["jquery", "./map"], function ($, Map) {
     console.log("Revenue: "+ revenue);
     console.log("Cost: "+ cost);
     console.log("Wait time: " + waitTime);
+    return true;
   };
 
   var loadTaxiLocationHandler = function(event) {
     var text = event.target.result;
-    var taxiActions = JSON.parse(text);
+    try{
+      var taxiActions = JSON.parse(text);
+    }catch(err){
+      console.log(err);
+      console.log(scope.actionFileNames[scope.index++]);
+      return;
+    }
     var filename = $("#filename").val();
     var mapFile = "static/map" + filename + ".txt";
-    var coordFile = "static/coord" + filename + ".txt";
-    console.log("Loading the map and coord");
+    var coordFile = "static/requests" + filename + ".txt";
+    var actionFileName = scope.actionFileNames[scope.index++];
     $.get(mapFile, function(mapText) {
       $.get(coordFile, function(coordText) {
         // Validate the taxiActions after getting the map and coord
-        console.log("Validating");
-        validate(mapText, coordText, taxiActions);
+        if(validate(mapText, coordText, taxiActions))
+          console.log("pass " + actionFileName);
+        else
+          console.log("fail " +  actionFileName);
+        console.log("");
       });
     });
   }
-  return loadTaxiLocationHandler;
+
+  var setUpValidator = function(file){
+    scope.actionFileNames.push(file.name);
+    var taxiLocationReader = new FileReader();
+    taxiLocationReader.onload = loadTaxiLocationHandler;
+    taxiLocationReader.readAsText(file);
+  }
+
+  return setUpValidator;
 });

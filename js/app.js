@@ -19,18 +19,18 @@ requirejs(['map', 'validator', 'jquery'], function(Map, validator, $) {
     var val = $(this).val();
     $("#mapdownload").attr("href", "static/map" + val + ".txt");
     $("#mapdownload").attr("download", "map" + val + ".txt");
-    $("#coorddownload").attr("href", "static/coord" + val + ".txt");
-    $("#coorddownload").attr("download", "coord" + val + ".txt");
+    $("#coorddownload").attr("href", "static/requests" + val + ".txt");
+    $("#coorddownload").attr("download", "requests" + val + ".txt");
   });
 
   $("#submit").click(function() {
     // Get csv string from taxi locations
-    var file = document.getElementById("taxi_locations_csv").files[0];
-    if(file === undefined)
-      return;
-    var taxiLocationReader = new FileReader();
-    console.log("Clicked submit");
-    taxiLocationReader.onload = validator;
-    taxiLocationReader.readAsText(file);
+    var length = document.getElementById('taxi_locations_csv').files.length;
+    for(var i = 0; i < length; i++){
+      var file = document.getElementById("taxi_locations_csv").files[i];
+      if(file === undefined)
+        return;
+      validator(file);
+    }
   });
 });

@@ -5,31 +5,28 @@
     <body>
         <div>
           <select id="filename">
-            <option value="100_1">100_1</option>
-            <option value="100_2">100_2</option>
-            <option value="100_3">100_3</option>
-            <option value="60_1">60_1</option>
-            <option value="60_2">60_2</option>
-            <option value="60_3">60_3</option>
-            <option value="20_1">20_1</option>
-            <option value="20_2">20_2</option>
-            <option value="20_3">20_3</option>
             <option value="8_1">8_1</option>
             <option value="8_2">8_2</option>
             <option value="8_3">8_3</option>
+            <option value="20_1">20_1</option>
+            <option value="20_2">20_2</option>
+            <option value="20_3">20_3</option>
+            <option value="60_1">60_1</option>
+            <option value="60_2">60_2</option>
+            <option value="60_3">60_3</option>
           </select>
           <br />
-          <a id="mapdownload" href="static/map100_1.txt"
-            download="map100_1.txt">
+          <a id="mapdownload" href="static/map8_1.txt"
+            download="map8_1.txt">
             Download map
           </a>
           <br />
-          <a id="coorddownload" href="static/coord100_1.txt"
-            download="coord100_1.txt">
+          <a id="coorddownload" href="static/requests8_1.txt"
+            download="requests8_1.txt">
             Download requests
           </a>
           <br />
-        	<input id="taxi_locations_csv" type="file"/>
+        	<input id="taxi_locations_csv" type="file" multiple/>
         	<button id="submit">submit</button>
         </div>
       <script data-main="js/app" src="js/require.js"></script>
