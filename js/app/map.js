@@ -11,6 +11,7 @@ define('map', ['jquery'], function($) {
     this.startReqs = parseStartRequests(requests.requests);
     this.endReqs = parseEndRequests(requests.requests);
     this.reqIds = parseReqIds(requests.requests);
+    this.reqFees = parseReqFees(requests.requests);
    // this.endReqs = parseStartRequests(requests.requests);
   }
 
@@ -91,12 +92,25 @@ define('map', ['jquery'], function($) {
           var requestId = req.id;
           reqs[requestId] = {
               "id":req.id,
-              "done":false,
+              "done": false,
+              "customerFee":req.customerFee,
           }
       }
       return reqs;
   }
 
+  function parseReqFees(requests) {
+      var reqs = {};
+      for (i in requests) {
+          var req = requests[i];
+          var requestId = req.id;
+          reqs[requestId] = {
+              "customerFee": req.customerFee,
+              "id": req.id,
+          }
+      }
+      return reqs;
+  }
 
   /**
    * Returns the symbol of the destination
@@ -204,6 +218,10 @@ define('map', ['jquery'], function($) {
 
   Map.prototype.getRequests = function () {
       return this.reqIds;
+  }
+
+  Map.prototype.getRequestFees = function () {
+      return this.reqFees;
   }
 
   //Map.prototype.isDropoff = function (x, y) {

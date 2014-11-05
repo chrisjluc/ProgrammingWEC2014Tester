@@ -13,6 +13,8 @@ define("validator", ["jquery", "./map"], function ($, Map) {
     var arrayOfTaxiData = [];
     
     var reqStatuses = map.getRequests();
+   // var customerFees = map.getRequestFees();
+    var totalCustomerFee = 0;
     for (var taxiId in taxiActionsList) {
       if (!taxiActionsList.hasOwnProperty(taxiId))
         continue;
@@ -53,6 +55,7 @@ define("validator", ["jquery", "./map"], function ($, Map) {
                 return false;
             }
             pickupid = data.id;
+            totalCustomerFee += reqStatuses[pickupid].customerFee;
             taxiState.hasPerson = true;
             // Time from pickup (i) to start time (0)
             taxiData.waitTimeForCustomers += i;
@@ -148,13 +151,14 @@ define("validator", ["jquery", "./map"], function ($, Map) {
       waitTime += parseInt(taxiData.waitTimeForCustomers);
     }
 
-    cost += initializationCostPerTaxi * arrayOfTaxiData.length;
+    cost += (initializationCostPerTaxi * arrayOfTaxiData.length) + totalCustomerFee;
     var profit = revenue - cost;
 
     console.log("Profit: "+ profit);
     console.log("Revenue: "+ revenue);
     console.log("Cost: "+ cost);
     console.log("Wait time: " + waitTime);
+    console.log("Total Customer Fee: " + totalCustomerFee);
     return true;
   };
 
