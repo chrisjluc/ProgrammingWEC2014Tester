@@ -2,47 +2,87 @@
     "requests": [
         {
             "dropoff": {
-                "y": 45,
-                "x": 49
+                "y": 13,
+                "x": 6
             },
             "pickup": {
-                "y": 18,
-                "x": 31
+                "y": 42,
+                "x": 2
             },
+            "customerFee": 66.0,
             "id": 1
         },
         {
             "dropoff": {
-                "y": 25,
-                "x": 58
+                "y": 22,
+                "x": 2
             },
             "pickup": {
-                "y": 33,
-                "x": 47
+                "y": 18,
+                "x": 12
             },
+            "customerFee": 28.0,
             "id": 2
         },
         {
             "dropoff": {
-                "y": 54,
-                "x": 24
+                "y": 34,
+                "x": 35
             },
             "pickup": {
-                "y": 25,
-                "x": 12
+                "y": 49,
+                "x": 22
             },
+            "customerFee": 56.0,
             "id": 3
         },
         {
             "dropoff": {
-                "y": 24,
-                "x": 6
+                "y": 22,
+                "x": 43
             },
             "pickup": {
-                "y": 6,
-                "x": 16
+                "y": 36,
+                "x": 13
             },
+            "customerFee": 88.0,
             "id": 4
+        },
+        {
+            "dropoff": {
+                "y": 39,
+                "x": 29
+            },
+            "pickup": {
+                "y": 49,
+                "x": 14
+            },
+            "customerFee": 50.0,
+            "id": 5
+        },
+        {
+            "dropoff": {
+                "y": 29,
+                "x": 10
+            },
+            "pickup": {
+                "y": 57,
+                "x": 47
+            },
+            "customerFee": 130.0,
+            "id": 6
+        },
+        {
+            "dropoff": {
+                "y": 34,
+                "x": 44
+            },
+            "pickup": {
+                "y": 29,
+                "x": 55
+            },
+            "customerFee": 32.0,
+            "id": 7
         },
         {
             "dropoff": {
@@ -50,42 +90,10 @@
                 "x": 57
             },
             "pickup": {
-                "y": 34,
-                "x": 41
+                "y": 24,
+                "x": 6
             },
-            "id": 5
-        },
-        {
-            "dropoff": {
-                "y": 25,
-                "x": 34
-            },
-            "pickup": {
-                "y": 57,
-                "x": 24
-            },
-            "id": 6
-        },
-        {
-            "dropoff": {
-                "y": 30,
-                "x": 58
-            },
-            "pickup": {
-                "y": 47,
-                "x": 53
-            },
-            "id": 7
-        },
-        {
-            "dropoff": {
-                "y": 38,
-                "x": 36
-            },
-            "pickup": {
-                "y": 57,
-                "x": 32
-            },
+            "customerFee": 170.0,
             "id": 8
         }
     ],

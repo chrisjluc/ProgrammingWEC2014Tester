@@ -14,6 +14,11 @@ class RequestBuilder:
         y = int(math.floor(random.random() * self.height))
         return (x, y)
 
+    def calculateCustomerFee(self, pickup, dropoff):
+        dx = math.fabs(pickup[0] - dropoff[0])
+        dy = math.fabs(pickup[1] - dropoff[1])
+        return (dx + dy) * 2
+
     def gen(self):
         mapName = "test/map" + self.name + ".txt"
         output = {}
@@ -66,6 +71,7 @@ class RequestBuilder:
                 request["pickup"]["y"] = pickup[1]
                 request["dropoff"]["x"] = dropoff[0]
                 request["dropoff"]["y"] = dropoff[1]
+                request["customerFee"] = self.calculateCustomerFee(pickup, dropoff)
                 output["requests"].append(request)
 
         '''
