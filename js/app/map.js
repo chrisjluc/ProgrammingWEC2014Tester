@@ -10,6 +10,7 @@ define('map', ['jquery'], function($) {
    // this.taxiHq = requests.taxi;
     this.startReqs = parseStartRequests(requests.requests);
     this.endReqs = parseEndRequests(requests.requests);
+    this.reqIds = parseReqIds(requests.requests);
    // this.endReqs = parseStartRequests(requests.requests);
   }
 
@@ -83,6 +84,19 @@ define('map', ['jquery'], function($) {
     return reqs;
   }
 
+  function parseReqIds(requests) {
+      var reqs = {};
+      for (i in requests) {
+          var requestId = req.id;
+          reqs[requestId] = {
+              "id":req.id,
+              "done":false,
+          }
+      }
+      return reqs;
+  }
+
+
   /**
    * Returns the symbol of the destination
    * A => a
@@ -117,15 +131,25 @@ define('map', ['jquery'], function($) {
   /**
    * Returns whether the coordinate is the pickup point
    */
-  Map.prototype.isPickup = function (x, y) {
-      if (this.map[y][x] == blockEnum.STREET) {
-          for (i in this.startReqs) {
-              if (this.startReqs[i].x == x && this.startReqs[i].y == y)
-                  return true;
-          }
-      }
+
+  Map.prototype.isPickup = function (x, y, id) {
+      if (id in this.startReqs)
+      {
+          if (this.startReqs[id].x == x && this.startReqs[id].y == y)
+              return true;
+      }      
       return false;
   }
+
+  //Map.prototype.isPickup = function (x, y) {
+  //    if (this.map[y][x] == blockEnum.STREET) {
+  //        for (i in this.startReqs) {
+  //            if (this.startReqs[i].x == x && this.startReqs[i].y == y)
+  //                return true;
+  //        }
+  //    }
+  //    return false;
+  //}
 
     //Map.prototype.isPickup = function(x, y) {
   //  var elem = this.map[y][x];
@@ -168,15 +192,30 @@ define('map', ['jquery'], function($) {
    * If it returns false, it should throw an error
    */
 
-  Map.prototype.isDropoff = function (x, y) {
-      if (this.map[y][x] == blockEnum.STREET) {
-          for (i in this.endReqs) {
-              if (this.endReqs[i].x == x && this.endReqs[i].y == y)
-                  return true;
-          }
+
+  Map.prototype.isDropoff = function (x, y, id) {
+      if (id in this.endReqs) {
+          if (this.endReqs[id].x == x && this.endReqs[id].y == y)
+              return true;
       }
       return false;
   }
+
+  Map.prototype.getRequests = function () {
+      return this.reqIds;
+  }
+
+  //Map.prototype.isDropoff = function (x, y) {
+  //    if (this.map[y][x] == blockEnum.STREET) {
+  //        for (i in this.endReqs) {
+  //            if (this.endReqs[i].x == x && this.endReqs[i].y == y)
+  //                return true;
+  //        }
+  //    }
+  //    return false;
+  //}
+
+
 
   //Map.prototype.isDropoff = function(x, y) {
   //  var elem = this.map[y][x];

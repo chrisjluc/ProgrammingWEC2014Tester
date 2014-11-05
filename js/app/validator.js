@@ -7,7 +7,8 @@ define("validator", ["jquery", "./map"], function ($, Map) {
     // Used to hold distance travelled and wait time
     // for each taxi as we iterate through the actions
     var arrayOfTaxiData = [];
-
+    
+    var reqStatuses = map.getRequests;
     for (var taxiId in taxiActionsList) {
       if (!taxiActionsList.hasOwnProperty(taxiId))
         continue;
@@ -29,17 +30,25 @@ define("validator", ["jquery", "./map"], function ($, Map) {
         distanceTravelled : 0,
         distanceTravelledInTransaction : 0
       }
-
+      var prevData = null;
+      var pickupid = null;
+      var dropoffid = null;
       // Start the action checker for each taxi
       for (var i = 0; i < taxiActions.length; i++) {
-        var data = taxiActions[i];
-
+          var data = taxiActions[i];
+ 
         if (data.hasOwnProperty('action')) {
           if (data.action === 'pickup') {
             if (taxiState.hasPerson) {
               console.error("Can't start new transaction, when you're in the middle of transaction (At index "+ i );
               return;
             }
+           //pickup state needs to have an id
+            if (!map.isPickup(prevData.x, prevData.y, data.id)) {
+                console.error("Not a valid pickup");
+                return;
+            }
+            pickupid = data.id;
             taxiState.hasPerson = true;
             // Time from pickup (i) to start time (0)
             taxiData.waitTimeForCustomers += i;
@@ -49,6 +58,18 @@ define("validator", ["jquery", "./map"], function ($, Map) {
               console.error("Can't end transaction, when you have no one in the taxi (At index "+ i );
               return;
             }
+            //dropoff state needs to have an id
+            if (!map.isDropoff(prevData.x, prevData.y, data.id)) {
+                console.error("Not a valid dropoff");
+                return;
+            }
+            dropoffid = data.id;
+            if (dropoffid != pickupid)
+            {
+                console.error("Dropoff does not correspond to pickup");
+                return;
+            }
+            reqStatuses[dropoffid].done = true;
             taxiState.hasPerson = false;
           } else if(data.action === 'start' && data.hasOwnProperty('x') && data.hasOwnProperty('y')){
             if (prevCoord == null) {
@@ -89,14 +110,25 @@ define("validator", ["jquery", "./map"], function ($, Map) {
           console.error("Data at index" + i + "has an invalid property");
           return;
         }
+        prevData = data;
       }
     arrayOfTaxiData.push(taxiData);
     }
 
+
+    for (i in reqStatuses)
+    {
+        if (!reqStatuses[i].done)
+        {
+            console.error("Request" + reqStatuses[i].id + "not completed");
+            return;
+        }
+    }
+
     //Constants for calculating revenue and cost
-    var revenuePerUnitDistance = 10;
+    var revenuePerUnitDistance = 5;
     var costPerUnitDistance = 1;
-    var initializationCostPerTaxi = 5;
+    var initializationCostPerTaxi = 50;
 
     var cost = 0, revenue = 0, waitTime = 0;
 
