@@ -2,55 +2,103 @@
     "requests": [
         {
             "dropoff": {
-                "y": 14,
-                "x": 17
+                "y": 11,
+                "x": 6
             },
             "pickup": {
-                "y": 11,
-                "x": 1
+                "y": 8,
+                "x": 18
             },
-            "customerFee": 38.0,
+            "deliveryFee": 30.0,
             "id": 1
         },
         {
             "dropoff": {
-                "y": 6,
-                "x": 1
+                "y": 14,
+                "x": 14
             },
             "pickup": {
                 "y": 15,
-                "x": 5
+                "x": 14
             },
-            "customerFee": 26.0,
+            "deliveryFee": 2.0,
             "id": 2
         },
         {
             "dropoff": {
-                "y": 6,
+                "y": 17,
                 "x": 13
             },
             "pickup": {
-                "y": 14,
-                "x": 11
+                "y": 5,
+                "x": 6
             },
-            "customerFee": 20.0,
+            "deliveryFee": 38.0,
             "id": 3
         },
         {
             "dropoff": {
-                "y": 3,
-                "x": 6
+                "y": 4,
+                "x": 2
             },
             "pickup": {
                 "y": 1,
-                "x": 9
+                "x": 13
             },
-            "customerFee": 10.0,
+            "deliveryFee": 28.0,
             "id": 4
+        },
+        {
+            "dropoff": {
+                "y": 9,
+                "x": 2
+            },
+            "pickup": {
+                "y": 2,
+                "x": 5
+            },
+            "deliveryFee": 20.0,
+            "id": 5
+        },
+        {
+            "dropoff": {
+                "y": 16,
+                "x": 18
+            },
+            "pickup": {
+                "y": 14,
+                "x": 6
+            },
+            "deliveryFee": 28.0,
+            "id": 6
+        },
+        {
+            "dropoff": {
+                "y": 10,
+                "x": 13
+            },
+            "pickup": {
+                "y": 4,
+                "x": 10
+            },
+            "deliveryFee": 18.0,
+            "id": 7
+        },
+        {
+            "dropoff": {
+                "y": 13,
+                "x": 12
+            },
+            "pickup": {
+                "y": 17,
+                "x": 16
+            },
+            "deliveryFee": 16.0,
+            "id": 8
         }
     ],
-    "taxiHeadquarter": {
-        "y": 16,
-        "x": 14
+    "deliveryHeadquarter": {
+        "y": 11,
+        "x": 18
     }
 }

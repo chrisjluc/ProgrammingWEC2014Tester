@@ -119,7 +119,7 @@ class CityMap:
         while self.is_not_street(taxi_hq):
             taxi_hq = self.gen_single_random_coord()
 
-        self.set_elem(taxi_hq, "T")
+        self.set_elem(taxi_hq, "H")
 
     def set_elem(self, pair, val):
         self.maze[pair[0]][pair[1]] = val
@@ -194,6 +194,6 @@ if __name__ == "__main__":
     elif len(sys.argv) == 2:
         main(sys.argv[1])
     else:
-        sizes = [8, 20, 60, 100, 200, 400]
+        sizes = [200, 500, 1000]
         for i in sizes:
             main(i)

@@ -2,30 +2,30 @@
     "requests": [
         {
             "dropoff": {
-                "y": 3,
-                "x": 6
+                "y": 4,
+                "x": 2
             },
             "pickup": {
-                "y": 6,
-                "x": 1
+                "y": 2,
+                "x": 4
             },
-            "customerFee":16.0,
+            "deliveryFee": 8.0,
             "id": 1
         },
         {
             "dropoff": {
                 "y": 2,
-                "x": 3
+                "x": 5
             },
             "pickup": {
-                "y": 3,
-                "x": 2
+                "y": 1,
+                "x": 6
             },
-            "customerFee": 4.0,
+            "deliveryFee": 4.0,
             "id": 2
         }
     ],
-    "taxiHeadquarter": {
+    "deliveryHeadquarter": {
         "y": 5,
         "x": 1
     }

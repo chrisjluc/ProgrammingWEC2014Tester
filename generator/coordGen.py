@@ -42,11 +42,11 @@ class RequestBuilder:
                         coord["x"] = j
                         coord["symbol"] = self.map[i][j]
                         coordinates[self.map[i][j]] = coord'''
-                    if self.map[i][j] == "T":
-                        taxiStart = {}
-                        taxiStart["y"] = i
-                        taxiStart["x"] = j
-                        output["taxiHeadquarter"] = taxiStart
+                    if self.map[i][j] == "H":
+                        start = {}
+                        start["y"] = i
+                        start["x"] = j
+                        output["deliveryHeadquarter"] = start
                 else:
                     continue
                 break
@@ -71,7 +71,7 @@ class RequestBuilder:
                 request["pickup"]["y"] = pickup[1]
                 request["dropoff"]["x"] = dropoff[0]
                 request["dropoff"]["y"] = dropoff[1]
-                request["customerFee"] = self.calculateCustomerFee(pickup, dropoff)
+                request["deliveryFee"] = self.calculateCustomerFee(pickup, dropoff)
                 output["requests"].append(request)
 
         '''
@@ -93,8 +93,8 @@ class RequestBuilder:
 
 if __name__ == "__main__":
     # size = sys.argv[1]
-    sizes = ["8", "20", "60", "100", "200", "400"]
-    requestNums = [2, 4, 8, 20, 20, 20]
+    sizes = ["8", "20", "60", "100", "200", "500", "1000"]
+    requestNums = [2, 8, 40, 50, 125, 400, 1000]
     index = 0;
     for i in sizes:
         for j in range(1, 4):

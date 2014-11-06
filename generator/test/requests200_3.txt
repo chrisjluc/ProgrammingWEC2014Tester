@@ -2,247 +2,1507 @@
     "requests": [
         {
             "dropoff": {
-                "y": 155,
-                "x": 13
+                "y": 78,
+                "x": 21
             },
             "pickup": {
-                "y": 191,
-                "x": 62
+                "y": 34,
+                "x": 126
             },
-            "customerFee": 170.0,
+            "deliveryFee": 298.0,
             "id": 1
         },
         {
             "dropoff": {
-                "y": 120,
-                "x": 61
+                "y": 84,
+                "x": 90
             },
             "pickup": {
-                "y": 105,
-                "x": 35
+                "y": 61,
+                "x": 40
             },
-            "customerFee": 82.0,
+            "deliveryFee": 146.0,
             "id": 2
         },
         {
             "dropoff": {
-                "y": 110,
-                "x": 10
+                "y": 181,
+                "x": 61
             },
             "pickup": {
-                "y": 52,
-                "x": 141
+                "y": 74,
+                "x": 55
             },
-            "customerFee": 378.0,
+            "deliveryFee": 226.0,
             "id": 3
         },
         {
             "dropoff": {
-                "y": 151,
-                "x": 61
+                "y": 19,
+                "x": 50
             },
             "pickup": {
-                "y": 78,
-                "x": 177
+                "y": 42,
+                "x": 26
             },
-            "customerFee": 378.0,
+            "deliveryFee": 94.0,
             "id": 4
         },
         {
             "dropoff": {
-                "y": 50,
-                "x": 110
+                "y": 86,
+                "x": 50
             },
             "pickup": {
-                "y": 14,
-                "x": 46
+                "y": 30,
+                "x": 53
             },
-            "customerFee": 200.0,
+            "deliveryFee": 118.0,
             "id": 5
         },
         {
             "dropoff": {
-                "y": 110,
-                "x": 155
+                "y": 81,
+                "x": 142
             },
             "pickup": {
-                "y": 133,
-                "x": 155
+                "y": 118,
+                "x": 25
             },
-            "customerFee": 46.0,
+            "deliveryFee": 308.0,
             "id": 6
         },
         {
             "dropoff": {
-                "y": 96,
-                "x": 129
+                "y": 177,
+                "x": 90
             },
             "pickup": {
-                "y": 73,
-                "x": 27
+                "y": 94,
+                "x": 56
             },
-            "customerFee": 250.0,
+            "deliveryFee": 234.0,
             "id": 7
         },
         {
             "dropoff": {
-                "y": 186,
-                "x": 176
+                "y": 48,
+                "x": 106
             },
             "pickup": {
-                "y": 66,
-                "x": 129
+                "y": 56,
+                "x": 9
             },
-            "customerFee": 334.0,
+            "deliveryFee": 210.0,
             "id": 8
         },
         {
             "dropoff": {
-                "y": 57,
-                "x": 110
+                "y": 143,
+                "x": 6
             },
             "pickup": {
-                "y": 67,
-                "x": 106
+                "y": 62,
+                "x": 159
             },
-            "customerFee": 28.0,
+            "deliveryFee": 468.0,
             "id": 9
         },
         {
             "dropoff": {
-                "y": 50,
-                "x": 148
+                "y": 136,
+                "x": 50
+            },
+            "pickup": {
+                "y": 94,
+                "x": 93
+            },
+            "deliveryFee": 170.0,
+            "id": 10
+        },
+        {
+            "dropoff": {
+                "y": 154,
+                "x": 154
+            },
+            "pickup": {
+                "y": 31,
+                "x": 25
+            },
+            "deliveryFee": 504.0,
+            "id": 11
+        },
+        {
+            "dropoff": {
+                "y": 13,
+                "x": 101
+            },
+            "pickup": {
+                "y": 167,
+                "x": 133
+            },
+            "deliveryFee": 372.0,
+            "id": 12
+        },
+        {
+            "dropoff": {
+                "y": 180,
+                "x": 18
+            },
+            "pickup": {
+                "y": 22,
+                "x": 167
+            },
+            "deliveryFee": 614.0,
+            "id": 13
+        },
+        {
+            "dropoff": {
+                "y": 194,
+                "x": 129
+            },
+            "pickup": {
+                "y": 169,
+                "x": 165
+            },
+            "deliveryFee": 122.0,
+            "id": 14
+        },
+        {
+            "dropoff": {
+                "y": 79,
+                "x": 90
             },
             "pickup": {
                 "y": 41,
                 "x": 25
             },
-            "customerFee": 264.0,
-            "id": 10
-        },
-        {
-            "dropoff": {
-                "y": 130,
-                "x": 126
-            },
-            "pickup": {
-                "y": 142,
-                "x": 94
-            },
-            "customerFee": 88.0,
-            "id": 11
-        },
-        {
-            "dropoff": {
-                "y": 51,
-                "x": 46
-            },
-            "pickup": {
-                "y": 11,
-                "x": 157
-            },
-            "customerFee": 302.0,
-            "id": 12
-        },
-        {
-            "dropoff": {
-                "y": 150,
-                "x": 155
-            },
-            "pickup": {
-                "y": 18,
-                "x": 129
-            },
-            "customerFee": 316.0,
-            "id": 13
-        },
-        {
-            "dropoff": {
-                "y": 106,
-                "x": 164
-            },
-            "pickup": {
-                "y": 135,
-                "x": 49
-            },
-            "customerFee": 288.0,
-            "id": 14
-        },
-        {
-            "dropoff": {
-                "y": 30,
-                "x": 93
-            },
-            "pickup": {
-                "y": 61,
-                "x": 136
-            },
-            "customerFee": 148.0,
+            "deliveryFee": 206.0,
             "id": 15
         },
         {
             "dropoff": {
-                "y": 121,
-                "x": 97
+                "y": 161,
+                "x": 99
             },
             "pickup": {
-                "y": 177,
-                "x": 161
+                "y": 154,
+                "x": 180
             },
-            "customerFee": 240.0,
+            "deliveryFee": 176.0,
             "id": 16
         },
         {
             "dropoff": {
-                "y": 10,
-                "x": 122
+                "y": 42,
+                "x": 118
             },
             "pickup": {
-                "y": 78,
-                "x": 95
+                "y": 122,
+                "x": 18
             },
-            "customerFee": 190.0,
+            "deliveryFee": 360.0,
             "id": 17
         },
         {
             "dropoff": {
-                "y": 148,
-                "x": 193
+                "y": 146,
+                "x": 101
             },
             "pickup": {
-                "y": 189,
-                "x": 195
+                "y": 104,
+                "x": 1
             },
-            "customerFee": 86.0,
+            "deliveryFee": 284.0,
             "id": 18
         },
         {
             "dropoff": {
-                "y": 106,
-                "x": 151
+                "y": 110,
+                "x": 124
             },
             "pickup": {
-                "y": 111,
-                "x": 145
+                "y": 18,
+                "x": 109
             },
-            "customerFee": 22.0,
+            "deliveryFee": 214.0,
             "id": 19
         },
         {
             "dropoff": {
-                "y": 37,
-                "x": 87
+                "y": 84,
+                "x": 153
             },
             "pickup": {
-                "y": 176,
-                "x": 46
+                "y": 41,
+                "x": 157
             },
-            "customerFee": 360.0,
+            "deliveryFee": 94.0,
             "id": 20
+        },
+        {
+            "dropoff": {
+                "y": 154,
+                "x": 181
+            },
+            "pickup": {
+                "y": 10,
+                "x": 162
+            },
+            "deliveryFee": 326.0,
+            "id": 21
+        },
+        {
+            "dropoff": {
+                "y": 62,
+                "x": 162
+            },
+            "pickup": {
+                "y": 33,
+                "x": 25
+            },
+            "deliveryFee": 332.0,
+            "id": 22
+        },
+        {
+            "dropoff": {
+                "y": 86,
+                "x": 22
+            },
+            "pickup": {
+                "y": 10,
+                "x": 192
+            },
+            "deliveryFee": 492.0,
+            "id": 23
+        },
+        {
+            "dropoff": {
+                "y": 110,
+                "x": 25
+            },
+            "pickup": {
+                "y": 161,
+                "x": 82
+            },
+            "deliveryFee": 216.0,
+            "id": 24
+        },
+        {
+            "dropoff": {
+                "y": 186,
+                "x": 132
+            },
+            "pickup": {
+                "y": 121,
+                "x": 115
+            },
+            "deliveryFee": 164.0,
+            "id": 25
+        },
+        {
+            "dropoff": {
+                "y": 122,
+                "x": 186
+            },
+            "pickup": {
+                "y": 53,
+                "x": 6
+            },
+            "deliveryFee": 498.0,
+            "id": 26
+        },
+        {
+            "dropoff": {
+                "y": 186,
+                "x": 105
+            },
+            "pickup": {
+                "y": 88,
+                "x": 25
+            },
+            "deliveryFee": 356.0,
+            "id": 27
+        },
+        {
+            "dropoff": {
+                "y": 57,
+                "x": 66
+            },
+            "pickup": {
+                "y": 160,
+                "x": 30
+            },
+            "deliveryFee": 278.0,
+            "id": 28
+        },
+        {
+            "dropoff": {
+                "y": 64,
+                "x": 42
+            },
+            "pickup": {
+                "y": 125,
+                "x": 121
+            },
+            "deliveryFee": 280.0,
+            "id": 29
+        },
+        {
+            "dropoff": {
+                "y": 10,
+                "x": 78
+            },
+            "pickup": {
+                "y": 126,
+                "x": 149
+            },
+            "deliveryFee": 374.0,
+            "id": 30
+        },
+        {
+            "dropoff": {
+                "y": 110,
+                "x": 129
+            },
+            "pickup": {
+                "y": 114,
+                "x": 70
+            },
+            "deliveryFee": 126.0,
+            "id": 31
+        },
+        {
+            "dropoff": {
+                "y": 133,
+                "x": 13
+            },
+            "pickup": {
+                "y": 194,
+                "x": 184
+            },
+            "deliveryFee": 464.0,
+            "id": 32
+        },
+        {
+            "dropoff": {
+                "y": 102,
+                "x": 130
+            },
+            "pickup": {
+                "y": 197,
+                "x": 66
+            },
+            "deliveryFee": 318.0,
+            "id": 33
+        },
+        {
+            "dropoff": {
+                "y": 109,
+                "x": 178
+            },
+            "pickup": {
+                "y": 5,
+                "x": 62
+            },
+            "deliveryFee": 440.0,
+            "id": 34
+        },
+        {
+            "dropoff": {
+                "y": 16,
+                "x": 137
+            },
+            "pickup": {
+                "y": 5,
+                "x": 31
+            },
+            "deliveryFee": 234.0,
+            "id": 35
+        },
+        {
+            "dropoff": {
+                "y": 45,
+                "x": 30
+            },
+            "pickup": {
+                "y": 106,
+                "x": 110
+            },
+            "deliveryFee": 282.0,
+            "id": 36
+        },
+        {
+            "dropoff": {
+                "y": 34,
+                "x": 85
+            },
+            "pickup": {
+                "y": 152,
+                "x": 102
+            },
+            "deliveryFee": 270.0,
+            "id": 37
+        },
+        {
+            "dropoff": {
+                "y": 87,
+                "x": 22
+            },
+            "pickup": {
+                "y": 80,
+                "x": 113
+            },
+            "deliveryFee": 196.0,
+            "id": 38
+        },
+        {
+            "dropoff": {
+                "y": 34,
+                "x": 53
+            },
+            "pickup": {
+                "y": 2,
+                "x": 164
+            },
+            "deliveryFee": 286.0,
+            "id": 39
+        },
+        {
+            "dropoff": {
+                "y": 98,
+                "x": 128
+            },
+            "pickup": {
+                "y": 94,
+                "x": 84
+            },
+            "deliveryFee": 96.0,
+            "id": 40
+        },
+        {
+            "dropoff": {
+                "y": 58,
+                "x": 42
+            },
+            "pickup": {
+                "y": 40,
+                "x": 9
+            },
+            "deliveryFee": 102.0,
+            "id": 41
+        },
+        {
+            "dropoff": {
+                "y": 110,
+                "x": 86
+            },
+            "pickup": {
+                "y": 37,
+                "x": 164
+            },
+            "deliveryFee": 302.0,
+            "id": 42
+        },
+        {
+            "dropoff": {
+                "y": 181,
+                "x": 9
+            },
+            "pickup": {
+                "y": 118,
+                "x": 160
+            },
+            "deliveryFee": 428.0,
+            "id": 43
+        },
+        {
+            "dropoff": {
+                "y": 184,
+                "x": 77
+            },
+            "pickup": {
+                "y": 64,
+                "x": 38
+            },
+            "deliveryFee": 318.0,
+            "id": 44
+        },
+        {
+            "dropoff": {
+                "y": 87,
+                "x": 29
+            },
+            "pickup": {
+                "y": 54,
+                "x": 198
+            },
+            "deliveryFee": 404.0,
+            "id": 45
+        },
+        {
+            "dropoff": {
+                "y": 58,
+                "x": 76
+            },
+            "pickup": {
+                "y": 177,
+                "x": 103
+            },
+            "deliveryFee": 292.0,
+            "id": 46
+        },
+        {
+            "dropoff": {
+                "y": 142,
+                "x": 193
+            },
+            "pickup": {
+                "y": 181,
+                "x": 63
+            },
+            "deliveryFee": 338.0,
+            "id": 47
+        },
+        {
+            "dropoff": {
+                "y": 35,
+                "x": 38
+            },
+            "pickup": {
+                "y": 106,
+                "x": 166
+            },
+            "deliveryFee": 398.0,
+            "id": 48
+        },
+        {
+            "dropoff": {
+                "y": 182,
+                "x": 121
+            },
+            "pickup": {
+                "y": 174,
+                "x": 103
+            },
+            "deliveryFee": 52.0,
+            "id": 49
+        },
+        {
+            "dropoff": {
+                "y": 186,
+                "x": 71
+            },
+            "pickup": {
+                "y": 74,
+                "x": 78
+            },
+            "deliveryFee": 238.0,
+            "id": 50
+        },
+        {
+            "dropoff": {
+                "y": 82,
+                "x": 29
+            },
+            "pickup": {
+                "y": 192,
+                "x": 97
+            },
+            "deliveryFee": 356.0,
+            "id": 51
+        },
+        {
+            "dropoff": {
+                "y": 55,
+                "x": 25
+            },
+            "pickup": {
+                "y": 17,
+                "x": 130
+            },
+            "deliveryFee": 286.0,
+            "id": 52
+        },
+        {
+            "dropoff": {
+                "y": 69,
+                "x": 182
+            },
+            "pickup": {
+                "y": 110,
+                "x": 39
+            },
+            "deliveryFee": 368.0,
+            "id": 53
+        },
+        {
+            "dropoff": {
+                "y": 150,
+                "x": 144
+            },
+            "pickup": {
+                "y": 155,
+                "x": 162
+            },
+            "deliveryFee": 46.0,
+            "id": 54
+        },
+        {
+            "dropoff": {
+                "y": 37,
+                "x": 121
+            },
+            "pickup": {
+                "y": 117,
+                "x": 77
+            },
+            "deliveryFee": 248.0,
+            "id": 55
+        },
+        {
+            "dropoff": {
+                "y": 105,
+                "x": 13
+            },
+            "pickup": {
+                "y": 94,
+                "x": 9
+            },
+            "deliveryFee": 30.0,
+            "id": 56
+        },
+        {
+            "dropoff": {
+                "y": 126,
+                "x": 100
+            },
+            "pickup": {
+                "y": 84,
+                "x": 57
+            },
+            "deliveryFee": 170.0,
+            "id": 57
+        },
+        {
+            "dropoff": {
+                "y": 134,
+                "x": 128
+            },
+            "pickup": {
+                "y": 130,
+                "x": 79
+            },
+            "deliveryFee": 106.0,
+            "id": 58
+        },
+        {
+            "dropoff": {
+                "y": 53,
+                "x": 115
+            },
+            "pickup": {
+                "y": 169,
+                "x": 18
+            },
+            "deliveryFee": 426.0,
+            "id": 59
+        },
+        {
+            "dropoff": {
+                "y": 31,
+                "x": 53
+            },
+            "pickup": {
+                "y": 160,
+                "x": 9
+            },
+            "deliveryFee": 346.0,
+            "id": 60
+        },
+        {
+            "dropoff": {
+                "y": 17,
+                "x": 32
+            },
+            "pickup": {
+                "y": 150,
+                "x": 97
+            },
+            "deliveryFee": 396.0,
+            "id": 61
+        },
+        {
+            "dropoff": {
+                "y": 44,
+                "x": 53
+            },
+            "pickup": {
+                "y": 191,
+                "x": 177
+            },
+            "deliveryFee": 542.0,
+            "id": 62
+        },
+        {
+            "dropoff": {
+                "y": 33,
+                "x": 50
+            },
+            "pickup": {
+                "y": 194,
+                "x": 169
+            },
+            "deliveryFee": 560.0,
+            "id": 63
+        },
+        {
+            "dropoff": {
+                "y": 133,
+                "x": 117
+            },
+            "pickup": {
+                "y": 198,
+                "x": 83
+            },
+            "deliveryFee": 198.0,
+            "id": 64
+        },
+        {
+            "dropoff": {
+                "y": 106,
+                "x": 82
+            },
+            "pickup": {
+                "y": 54,
+                "x": 188
+            },
+            "deliveryFee": 316.0,
+            "id": 65
+        },
+        {
+            "dropoff": {
+                "y": 78,
+                "x": 166
+            },
+            "pickup": {
+                "y": 100,
+                "x": 9
+            },
+            "deliveryFee": 358.0,
+            "id": 66
+        },
+        {
+            "dropoff": {
+                "y": 78,
+                "x": 107
+            },
+            "pickup": {
+                "y": 83,
+                "x": 25
+            },
+            "deliveryFee": 174.0,
+            "id": 67
+        },
+        {
+            "dropoff": {
+                "y": 112,
+                "x": 77
+            },
+            "pickup": {
+                "y": 2,
+                "x": 153
+            },
+            "deliveryFee": 372.0,
+            "id": 68
+        },
+        {
+            "dropoff": {
+                "y": 127,
+                "x": 25
+            },
+            "pickup": {
+                "y": 110,
+                "x": 93
+            },
+            "deliveryFee": 170.0,
+            "id": 69
+        },
+        {
+            "dropoff": {
+                "y": 142,
+                "x": 5
+            },
+            "pickup": {
+                "y": 181,
+                "x": 155
+            },
+            "deliveryFee": 378.0,
+            "id": 70
+        },
+        {
+            "dropoff": {
+                "y": 45,
+                "x": 41
+            },
+            "pickup": {
+                "y": 94,
+                "x": 99
+            },
+            "deliveryFee": 214.0,
+            "id": 71
+        },
+        {
+            "dropoff": {
+                "y": 29,
+                "x": 194
+            },
+            "pickup": {
+                "y": 161,
+                "x": 130
+            },
+            "deliveryFee": 392.0,
+            "id": 72
+        },
+        {
+            "dropoff": {
+                "y": 62,
+                "x": 129
+            },
+            "pickup": {
+                "y": 94,
+                "x": 132
+            },
+            "deliveryFee": 70.0,
+            "id": 73
+        },
+        {
+            "dropoff": {
+                "y": 3,
+                "x": 158
+            },
+            "pickup": {
+                "y": 95,
+                "x": 137
+            },
+            "deliveryFee": 226.0,
+            "id": 74
+        },
+        {
+            "dropoff": {
+                "y": 153,
+                "x": 189
+            },
+            "pickup": {
+                "y": 17,
+                "x": 9
+            },
+            "deliveryFee": 632.0,
+            "id": 75
+        },
+        {
+            "dropoff": {
+                "y": 51,
+                "x": 17
+            },
+            "pickup": {
+                "y": 18,
+                "x": 76
+            },
+            "deliveryFee": 184.0,
+            "id": 76
+        },
+        {
+            "dropoff": {
+                "y": 77,
+                "x": 70
+            },
+            "pickup": {
+                "y": 58,
+                "x": 112
+            },
+            "deliveryFee": 122.0,
+            "id": 77
+        },
+        {
+            "dropoff": {
+                "y": 157,
+                "x": 63
+            },
+            "pickup": {
+                "y": 94,
+                "x": 68
+            },
+            "deliveryFee": 136.0,
+            "id": 78
+        },
+        {
+            "dropoff": {
+                "y": 37,
+                "x": 162
+            },
+            "pickup": {
+                "y": 177,
+                "x": 150
+            },
+            "deliveryFee": 304.0,
+            "id": 79
+        },
+        {
+            "dropoff": {
+                "y": 86,
+                "x": 49
+            },
+            "pickup": {
+                "y": 155,
+                "x": 145
+            },
+            "deliveryFee": 330.0,
+            "id": 80
+        },
+        {
+            "dropoff": {
+                "y": 5,
+                "x": 73
+            },
+            "pickup": {
+                "y": 74,
+                "x": 50
+            },
+            "deliveryFee": 184.0,
+            "id": 81
+        },
+        {
+            "dropoff": {
+                "y": 169,
+                "x": 165
+            },
+            "pickup": {
+                "y": 37,
+                "x": 61
+            },
+            "deliveryFee": 472.0,
+            "id": 82
+        },
+        {
+            "dropoff": {
+                "y": 168,
+                "x": 146
+            },
+            "pickup": {
+                "y": 181,
+                "x": 33
+            },
+            "deliveryFee": 252.0,
+            "id": 83
+        },
+        {
+            "dropoff": {
+                "y": 126,
+                "x": 65
+            },
+            "pickup": {
+                "y": 2,
+                "x": 58
+            },
+            "deliveryFee": 262.0,
+            "id": 84
+        },
+        {
+            "dropoff": {
+                "y": 110,
+                "x": 6
+            },
+            "pickup": {
+                "y": 65,
+                "x": 131
+            },
+            "deliveryFee": 340.0,
+            "id": 85
+        },
+        {
+            "dropoff": {
+                "y": 19,
+                "x": 14
+            },
+            "pickup": {
+                "y": 152,
+                "x": 1
+            },
+            "deliveryFee": 292.0,
+            "id": 86
+        },
+        {
+            "dropoff": {
+                "y": 197,
+                "x": 59
+            },
+            "pickup": {
+                "y": 126,
+                "x": 57
+            },
+            "deliveryFee": 146.0,
+            "id": 87
+        },
+        {
+            "dropoff": {
+                "y": 118,
+                "x": 162
+            },
+            "pickup": {
+                "y": 110,
+                "x": 128
+            },
+            "deliveryFee": 84.0,
+            "id": 88
+        },
+        {
+            "dropoff": {
+                "y": 6,
+                "x": 6
+            },
+            "pickup": {
+                "y": 115,
+                "x": 41
+            },
+            "deliveryFee": 288.0,
+            "id": 89
+        },
+        {
+            "dropoff": {
+                "y": 194,
+                "x": 165
+            },
+            "pickup": {
+                "y": 5,
+                "x": 58
+            },
+            "deliveryFee": 592.0,
+            "id": 90
+        },
+        {
+            "dropoff": {
+                "y": 181,
+                "x": 12
+            },
+            "pickup": {
+                "y": 102,
+                "x": 111
+            },
+            "deliveryFee": 356.0,
+            "id": 91
+        },
+        {
+            "dropoff": {
+                "y": 68,
+                "x": 74
+            },
+            "pickup": {
+                "y": 94,
+                "x": 114
+            },
+            "deliveryFee": 132.0,
+            "id": 92
+        },
+        {
+            "dropoff": {
+                "y": 127,
+                "x": 118
+            },
+            "pickup": {
+                "y": 74,
+                "x": 144
+            },
+            "deliveryFee": 158.0,
+            "id": 93
+        },
+        {
+            "dropoff": {
+                "y": 140,
+                "x": 41
+            },
+            "pickup": {
+                "y": 3,
+                "x": 158
+            },
+            "deliveryFee": 508.0,
+            "id": 94
+        },
+        {
+            "dropoff": {
+                "y": 65,
+                "x": 114
+            },
+            "pickup": {
+                "y": 60,
+                "x": 113
+            },
+            "deliveryFee": 12.0,
+            "id": 95
+        },
+        {
+            "dropoff": {
+                "y": 29,
+                "x": 105
+            },
+            "pickup": {
+                "y": 94,
+                "x": 105
+            },
+            "deliveryFee": 130.0,
+            "id": 96
+        },
+        {
+            "dropoff": {
+                "y": 154,
+                "x": 30
+            },
+            "pickup": {
+                "y": 161,
+                "x": 61
+            },
+            "deliveryFee": 76.0,
+            "id": 97
+        },
+        {
+            "dropoff": {
+                "y": 28,
+                "x": 154
+            },
+            "pickup": {
+                "y": 171,
+                "x": 22
+            },
+            "deliveryFee": 550.0,
+            "id": 98
+        },
+        {
+            "dropoff": {
+                "y": 169,
+                "x": 153
+            },
+            "pickup": {
+                "y": 133,
+                "x": 20
+            },
+            "deliveryFee": 338.0,
+            "id": 99
+        },
+        {
+            "dropoff": {
+                "y": 94,
+                "x": 110
+            },
+            "pickup": {
+                "y": 145,
+                "x": 101
+            },
+            "deliveryFee": 120.0,
+            "id": 100
+        },
+        {
+            "dropoff": {
+                "y": 108,
+                "x": 50
+            },
+            "pickup": {
+                "y": 109,
+                "x": 18
+            },
+            "deliveryFee": 66.0,
+            "id": 101
+        },
+        {
+            "dropoff": {
+                "y": 159,
+                "x": 53
+            },
+            "pickup": {
+                "y": 37,
+                "x": 150
+            },
+            "deliveryFee": 438.0,
+            "id": 102
+        },
+        {
+            "dropoff": {
+                "y": 181,
+                "x": 123
+            },
+            "pickup": {
+                "y": 34,
+                "x": 137
+            },
+            "deliveryFee": 322.0,
+            "id": 103
+        },
+        {
+            "dropoff": {
+                "y": 30,
+                "x": 198
+            },
+            "pickup": {
+                "y": 89,
+                "x": 77
+            },
+            "deliveryFee": 360.0,
+            "id": 104
+        },
+        {
+            "dropoff": {
+                "y": 102,
+                "x": 13
+            },
+            "pickup": {
+                "y": 150,
+                "x": 104
+            },
+            "deliveryFee": 278.0,
+            "id": 105
+        },
+        {
+            "dropoff": {
+                "y": 156,
+                "x": 166
+            },
+            "pickup": {
+                "y": 108,
+                "x": 18
+            },
+            "deliveryFee": 392.0,
+            "id": 106
+        },
+        {
+            "dropoff": {
+                "y": 81,
+                "x": 139
+            },
+            "pickup": {
+                "y": 14,
+                "x": 6
+            },
+            "deliveryFee": 400.0,
+            "id": 107
+        },
+        {
+            "dropoff": {
+                "y": 22,
+                "x": 25
+            },
+            "pickup": {
+                "y": 17,
+                "x": 158
+            },
+            "deliveryFee": 276.0,
+            "id": 108
+        },
+        {
+            "dropoff": {
+                "y": 110,
+                "x": 143
+            },
+            "pickup": {
+                "y": 186,
+                "x": 113
+            },
+            "deliveryFee": 212.0,
+            "id": 109
+        },
+        {
+            "dropoff": {
+                "y": 198,
+                "x": 66
+            },
+            "pickup": {
+                "y": 186,
+                "x": 123
+            },
+            "deliveryFee": 138.0,
+            "id": 110
+        },
+        {
+            "dropoff": {
+                "y": 26,
+                "x": 136
+            },
+            "pickup": {
+                "y": 94,
+                "x": 86
+            },
+            "deliveryFee": 236.0,
+            "id": 111
+        },
+        {
+            "dropoff": {
+                "y": 193,
+                "x": 157
+            },
+            "pickup": {
+                "y": 197,
+                "x": 75
+            },
+            "deliveryFee": 172.0,
+            "id": 112
+        },
+        {
+            "dropoff": {
+                "y": 110,
+                "x": 131
+            },
+            "pickup": {
+                "y": 54,
+                "x": 185
+            },
+            "deliveryFee": 220.0,
+            "id": 113
+        },
+        {
+            "dropoff": {
+                "y": 39,
+                "x": 42
+            },
+            "pickup": {
+                "y": 61,
+                "x": 14
+            },
+            "deliveryFee": 100.0,
+            "id": 114
+        },
+        {
+            "dropoff": {
+                "y": 116,
+                "x": 9
+            },
+            "pickup": {
+                "y": 6,
+                "x": 117
+            },
+            "deliveryFee": 436.0,
+            "id": 115
+        },
+        {
+            "dropoff": {
+                "y": 150,
+                "x": 83
+            },
+            "pickup": {
+                "y": 46,
+                "x": 179
+            },
+            "deliveryFee": 400.0,
+            "id": 116
+        },
+        {
+            "dropoff": {
+                "y": 189,
+                "x": 151
+            },
+            "pickup": {
+                "y": 46,
+                "x": 109
+            },
+            "deliveryFee": 370.0,
+            "id": 117
+        },
+        {
+            "dropoff": {
+                "y": 58,
+                "x": 192
+            },
+            "pickup": {
+                "y": 107,
+                "x": 110
+            },
+            "deliveryFee": 262.0,
+            "id": 118
+        },
+        {
+            "dropoff": {
+                "y": 94,
+                "x": 70
+            },
+            "pickup": {
+                "y": 135,
+                "x": 25
+            },
+            "deliveryFee": 172.0,
+            "id": 119
+        },
+        {
+            "dropoff": {
+                "y": 5,
+                "x": 32
+            },
+            "pickup": {
+                "y": 174,
+                "x": 104
+            },
+            "deliveryFee": 482.0,
+            "id": 120
+        },
+        {
+            "dropoff": {
+                "y": 170,
+                "x": 33
+            },
+            "pickup": {
+                "y": 58,
+                "x": 86
+            },
+            "deliveryFee": 330.0,
+            "id": 121
+        },
+        {
+            "dropoff": {
+                "y": 53,
+                "x": 91
+            },
+            "pickup": {
+                "y": 4,
+                "x": 158
+            },
+            "deliveryFee": 232.0,
+            "id": 122
+        },
+        {
+            "dropoff": {
+                "y": 37,
+                "x": 153
+            },
+            "pickup": {
+                "y": 41,
+                "x": 97
+            },
+            "deliveryFee": 120.0,
+            "id": 123
+        },
+        {
+            "dropoff": {
+                "y": 18,
+                "x": 85
+            },
+            "pickup": {
+                "y": 78,
+                "x": 48
+            },
+            "deliveryFee": 194.0,
+            "id": 124
+        },
+        {
+            "dropoff": {
+                "y": 133,
+                "x": 11
+            },
+            "pickup": {
+                "y": 65,
+                "x": 9
+            },
+            "deliveryFee": 140.0,
+            "id": 125
         }
     ],
-    "taxiHeadquarter": {
-        "y": 119,
-        "x": 182
+    "deliveryHeadquarter": {
+        "y": 58,
+        "x": 165
     }
 }
