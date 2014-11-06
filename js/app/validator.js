@@ -15,10 +15,15 @@ define("validator", ["jquery", "./map"], function ($, Map) {
     var reqStatuses = map.getRequests();
    // var customerFees = map.getRequestFees();
     var totalCustomerFee = 0;
-    for (var taxiId in taxiActionsList) {
-      if (!taxiActionsList.hasOwnProperty(taxiId))
-        continue;
-      var taxiActions = taxiActionsList[taxiId];
+    for (var j = 0; j < taxiActionsList.length; j++) {
+      var taxiInfo = taxiActionsList[j];
+      if(!taxiInfo.hasOwnProperty('taxiId') || !taxiInfo.hasOwnProperty('actions')){
+        console.log("Taxi at "+j+"th index isn't a proper object");
+        return false;
+      }
+
+      var taxiId = taxiInfo['taxiId'];
+      var taxiActions = taxiInfo['actions'];
 
       // Holds previous taxi coordinates
       var prevCoord = null;
@@ -34,7 +39,6 @@ define("validator", ["jquery", "./map"], function ($, Map) {
       var taxiData = {
         waitTimeForCustomers: 0,
         distanceTravelled : 0,
-        distanceTravelledInTransaction : 0
       }
       var prevData = null;
       var pickupid = null;
@@ -50,8 +54,8 @@ define("validator", ["jquery", "./map"], function ($, Map) {
               return false;
             }
            //pickup state needs to have an id
-            if (!map.isPickup(prevData.x, prevData.y, data.id)) {
-                console.log("Not a valid pickup");
+            if (!map.isPickup(prevCoord.x, prevCoord.y, data.id)) {
+                console.log("Not a valid pickup for customerId: "+data.id+" at taxi: "+taxiId);
                 return false;
             }
             pickupid = data.id;
@@ -66,7 +70,7 @@ define("validator", ["jquery", "./map"], function ($, Map) {
               return false;
             }
             //dropoff state needs to have an id
-            if (!map.isDropoff(prevData.x, prevData.y, data.id)) {
+            if (!map.isDropoff(prevCoord.x, prevCoord.y, data.id)) {
                 console.log("Not a valid dropoff (At index "+ i + ") for taxi: " + taxiId);
                 return false;
             }
@@ -103,8 +107,6 @@ define("validator", ["jquery", "./map"], function ($, Map) {
                   && Math.abs(coord.y - prevCoord.y) === 1)) {
                 prevCoord = coord;
                 taxiData.distanceTravelled++;
-                if(taxiState.hasPerson)
-                  taxiData.distanceTravelledInTransaction++;
               } else {
                 console.log("Taxi: "+taxiId+" can't travel more than 1 unit horizontal or vertical at index " + i + " in actions");
                 return false;
@@ -137,28 +139,25 @@ define("validator", ["jquery", "./map"], function ($, Map) {
     if(!allCompleted)
       return false;
 
-    //Constants for calculating revenue and cost
-    var revenuePerUnitDistance = 5;
+    //Constants for calculating cost
     var costPerUnitDistance = 1;
     var initializationCostPerTaxi = 50;
 
-    var cost = 0, revenue = 0, waitTime = 0;
+    var cost = 0, revenue = totalCustomerFee, waitTime = 0;
 
     for(var i = 0; i < arrayOfTaxiData.length; i++){
       var taxiData = arrayOfTaxiData[i];
       cost += parseInt(taxiData.distanceTravelled) * costPerUnitDistance;
-      revenue += parseInt(taxiData.distanceTravelledInTransaction) * revenuePerUnitDistance;
       waitTime += parseInt(taxiData.waitTimeForCustomers);
     }
 
-    cost += (initializationCostPerTaxi * arrayOfTaxiData.length) + totalCustomerFee;
+    cost += (initializationCostPerTaxi * taxiActionsList.length);
     var profit = revenue - cost;
 
     console.log("Profit: "+ profit);
     console.log("Revenue: "+ revenue);
     console.log("Cost: "+ cost);
     console.log("Wait time: " + waitTime);
-    console.log("Total Customer Fee: " + totalCustomerFee);
     return true;
   };
 

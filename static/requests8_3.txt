@@ -2,24 +2,26 @@
     "requests": [
         {
             "dropoff": {
-                "y": 2,
-                "x": 2
+                "y": 5,
+                "x": 5
             },
             "pickup": {
-                "y": 1,
-                "x": 6
+                "y": 5,
+                "x": 1
             },
+            "customerFee": 8.0,
             "id": 1
         },
         {
             "dropoff": {
-                "y": 4,
+                "y": 2,
                 "x": 1
             },
             "pickup": {
                 "y": 2,
-                "x": 4
+                "x": 2
             },
+            "customerFee": 2.0,
             "id": 2
         }
     ],
