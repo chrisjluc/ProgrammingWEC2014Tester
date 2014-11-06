@@ -6,8 +6,8 @@ define('map', ['jquery'], function($) {
     // 2D array, each element is a blockEnum, so either STREET or BUILDING
     this.map = parseMap(mapText);
     var requests = JSON.parse(requestText);
-    this.taxiHq = requests.taxiHeadquarter;
-   // this.taxiHq = requests.taxi;
+    this.deliveryHq = requests.deliveryHeadquarter;
+   // this.deliveryHq = requests.taxi;
     this.startReqs = parseStartRequests(requests.requests);
     this.endReqs = parseEndRequests(requests.requests);
     this.reqIds = parseReqIds(requests.requests);
@@ -92,7 +92,7 @@ define('map', ['jquery'], function($) {
           reqs[requestId] = {
               "id":req.id,
               "done": false,
-              "customerFee":req.customerFee,
+              "deliveryFee":req.deliveryFee,
           }
       }
       return reqs;
@@ -177,7 +177,7 @@ define('map', ['jquery'], function($) {
    * Checks if the location is a taxi
    */
   Map.prototype.isValidStart = function(x, y) {
-    return x == this.taxiHq.x && y == this.taxiHq.y;
+    return x == this.deliveryHq.x && y == this.deliveryHq.y;
   }
 
   /**

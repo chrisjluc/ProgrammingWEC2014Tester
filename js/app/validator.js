@@ -16,12 +16,12 @@ define("validator", ["jquery", "./map"], function ($, Map) {
     var totalCustomerFee = 0;
     for (var j = 0; j < taxiActionsList.length; j++) {
       var taxiInfo = taxiActionsList[j];
-      if(!taxiInfo.hasOwnProperty('taxiId') || !taxiInfo.hasOwnProperty('actions')){
-        console.log("Taxi at "+j+"th index isn't a proper object");
+      if(!taxiInfo.hasOwnProperty('carId') || !taxiInfo.hasOwnProperty('actions')){
+        console.log("Car at "+j+"th index isn't a proper object");
         return false;
       }
 
-      var taxiId = taxiInfo['taxiId'];
+      var carId = taxiInfo['carId'];
       var taxiActions = taxiInfo['actions'];
 
       // Holds previous taxi coordinates
@@ -49,34 +49,34 @@ define("validator", ["jquery", "./map"], function ($, Map) {
         if (data.hasOwnProperty('action')) {
           if (data.action === 'pickup') {
             if (taxiState.hasPerson) {
-              console.log("Can't start new transaction, when you're in the middle of transaction (At index "+ i + ") for taxi: " + taxiId );
+              console.log("Can't start new transaction, when you're in the middle of transaction (At index "+ i + ") for car: " + carId );
               return false;
             }
            //pickup state needs to have an id
             if (!map.isPickup(prevCoord.x, prevCoord.y, data.id)) {
-                console.log("Not a valid pickup for customerId: "+data.id+" at taxi: "+taxiId);
+                console.log("Not a valid pickup for deliveryId: "+data.id+" at car: "+carId);
                 return false;
             }
             pickupid = data.id;
-            totalCustomerFee += reqStatuses[pickupid].customerFee;
+            totalCustomerFee += reqStatuses[pickupid].deliveryFee;
             taxiState.hasPerson = true;
             // Time from pickup (i) to start time (0)
             taxiData.waitTimeForCustomers += i;
 
           } else if (data.action === 'dropoff') {
             if (!taxiState.hasPerson) {
-              console.log("Can't end transaction, when you have no one in the taxi (At index "+ i + ") for taxi: " + taxiId );
+              console.log("Can't end transaction, when you have no parcel in the car (At index "+ i + ") for car: " + carId );
               return false;
             }
             //dropoff state needs to have an id
             if (!map.isDropoff(prevCoord.x, prevCoord.y, data.id)) {
-                console.log("Not a valid dropoff (At index "+ i + ") for taxi: " + taxiId);
+                console.log("Not a valid dropoff (At index "+ i + ") for car: " + carId);
                 return false;
             }
             dropoffid = data.id;
             if (dropoffid != pickupid)
             {
-                console.log("Dropoff does not correspond to pickup (At index "+ i + ") for taxi: " + taxiId);
+                console.log("Dropoff does not correspond to pickup (At index "+ i + ") for car: " + carId);
                 return false;
             }
             reqStatuses[dropoffid].done = true;
@@ -84,17 +84,17 @@ define("validator", ["jquery", "./map"], function ($, Map) {
           } else if(data.action === 'start' && data.hasOwnProperty('x') && data.hasOwnProperty('y')){
             if (prevCoord == null) {
               if (!map.isValidStart(data.x,data.y)) {
-                console.log("Wrong start coordinates for taxi: " + taxiId);
+                console.log("Wrong start coordinates for car: " + carId);
                 return false;
               }
               prevCoord = data;
             } else {
-              console.log("Can't have multiple start actions for a taxi: " + taxiId);
+              console.log("Can't have multiple start actions for a car: " + carId);
               return false;
             }
           }else if(prevCoord == null){
             // Should never get to this state unless there was no start
-            console.log("No start action for taxi: "+taxiId);
+            console.log("No start action for car: "+carId);
             return false;
           }else if (data.action === 'drive' && data.hasOwnProperty('x') && data.hasOwnProperty('y')) {
             coord = data;
@@ -107,19 +107,19 @@ define("validator", ["jquery", "./map"], function ($, Map) {
                 prevCoord = coord;
                 taxiData.distanceTravelled++;
               } else {
-                console.log("Taxi: "+taxiId+" can't travel more than 1 unit horizontal or vertical at index " + i + " in actions");
+                console.log("Car: "+carId+" can't travel more than 1 unit horizontal or vertical at index " + i + " in actions");
                 return false;
               }
             } else {
-              console.log("Not valid coordinate at index " + i + "for taxi: "+taxiId+" in data at coordinate (" +coord.x+ "," + coord.y+")");
+              console.log("Not valid coordinate at index " + i + "for car: "+carId+" in data at coordinate (" +coord.x+ "," + coord.y+")");
               return false;
             }
           }else{
-            console.log("Invalid action for taxi: "+taxiId+" at index " + i + " has an invalid property");
+            console.log("Invalid action for car: "+carId+" at index " + i + " has an invalid property");
             return false;
           }
         } else {
-          console.log("Data at index " + i + "has an invalid property for taxi: "+taxiId);
+          console.log("Data at index " + i + "has an invalid property for car: "+carId);
           return false;
         }
         prevData = data;
@@ -131,7 +131,7 @@ define("validator", ["jquery", "./map"], function ($, Map) {
     for (i in reqStatuses)
       if (!reqStatuses[i].done)
       {
-        console.log("Customer request with id " + reqStatuses[i].id + " is not completed");
+        console.log("Delivery request with id " + reqStatuses[i].id + " is not completed");
         allCompleted = false;
       }
       
