@@ -13,7 +13,6 @@ define("validator", ["jquery", "./map"], function ($, Map) {
     var arrayOfTaxiData = [];
     
     var reqStatuses = map.getRequests();
-   // var customerFees = map.getRequestFees();
     var totalCustomerFee = 0;
     for (var j = 0; j < taxiActionsList.length; j++) {
       var taxiInfo = taxiActionsList[j];
@@ -156,7 +155,7 @@ define("validator", ["jquery", "./map"], function ($, Map) {
 
     console.log("Profit: "+ profit);
     console.log("Revenue: "+ revenue);
-    console.log("Cost: "+ cost);
+    console.log("Cost: " + cost);
     console.log("Wait time: " + waitTime);
     return true;
   };
