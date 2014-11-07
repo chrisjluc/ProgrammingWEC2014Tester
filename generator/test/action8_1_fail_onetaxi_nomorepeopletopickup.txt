@@ -1,5 +1,6 @@
-{
-    "taxi1": [
+[
+{   "carrierId":"carrier1",
+    "actions": [
         {
             "action": "start",
             "x": 1,
@@ -141,4 +142,4 @@
             "id":2
         }
     ]
-}
+}]

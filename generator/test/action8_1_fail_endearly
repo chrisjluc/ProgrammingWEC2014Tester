@@ -1,6 +1,6 @@
-{
-    "taxi1": [
-        {
+[
+{   "carrierId":"carrier1",
+    "actions": [{
             "action": "start",
             "x": 1,
             "y": 5
@@ -80,3 +80,4 @@
         }
     ]
 }
+]
