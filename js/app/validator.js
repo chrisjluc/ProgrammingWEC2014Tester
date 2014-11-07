@@ -11,9 +11,11 @@ define("validator", ["jquery", "./map"], function ($, Map) {
     // Used to hold distance travelled and wait time
     // for each taxi as we iterate through the actions
     var arrayOfTaxiData = [];
-    
     var reqStatuses = map.getRequests();
     var totalCustomerFee = 0;
+    // Keep track of Ids to ensure no duplicates
+    var carrierIds = [];
+
     for (var j = 0; j < taxiActionsList.length; j++) {
       var taxiInfo = taxiActionsList[j];
       if(!taxiInfo.hasOwnProperty('carrierId') || !taxiInfo.hasOwnProperty('actions')){
@@ -22,6 +24,11 @@ define("validator", ["jquery", "./map"], function ($, Map) {
       }
 
       var carrierId = taxiInfo['carrierId'];
+      if(carrierIds.indexOf(carrierId) > -1){
+        console.log("Carrier with id "+carrierId+" already exists.");
+        return false;
+      }
+      carrierIds.push(carrierId);
       var taxiActions = taxiInfo['actions'];
 
       // Holds previous taxi coordinates
