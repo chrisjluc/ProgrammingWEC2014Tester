@@ -248,7 +248,7 @@ define('map', ['jquery'], function($) {
   var blockEnum = {
     STREET: ' ',
     BUILDING: 'X',
-    START: 'T',
+    START: 'H',
   };
 
   return Map;
